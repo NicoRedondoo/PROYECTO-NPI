@@ -1,0 +1,4 @@
+<resources>
+    <string name="screen_touch_message">Tippen Sie auf den Bildschirm, um zu starten</string>
+    <string name="screen_touch_message2">Bildschirm berührt. Starte...</string>
+</resources>

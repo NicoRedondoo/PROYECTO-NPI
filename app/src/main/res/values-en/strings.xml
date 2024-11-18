@@ -1,0 +1,4 @@
+<resources>
+    <string name="screen_touch_message">Tap the screen to start</string>
+    <string name="screen_touch_message2">Screen touched. Starting...</string>
+</resources>

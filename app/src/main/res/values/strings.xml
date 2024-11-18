@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PROYECTO NPI</string>
+    <string name="screen_touch_message">Toque la pantalla para comenzar</string>
+    <string name="screen_touch_message2">Pantalla tocada. Comenzando...</string>
 </resources>
+
+
+
