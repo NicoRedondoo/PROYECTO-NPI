@@ -1,5 +1,6 @@
 package com.example.proyectonpi
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -67,6 +68,8 @@ class MainActivity : AppCompatActivity() {
             // Mostrar un mensaje Toast cuando se toque la pantalla
             val message = getString(R.string.screen_touch_message2)  // Usar la cadena traducida
             Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@MainActivity, Pantalla1::class.java)
+            startActivity(intent)
         }
     }
 }
