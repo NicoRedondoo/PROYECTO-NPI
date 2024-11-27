@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.widget.Button
+import com.example.proyectonpi.ui.vistas.Pantalla1
 import java.util.Locale
 
 

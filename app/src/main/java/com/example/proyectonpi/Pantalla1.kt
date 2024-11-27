@@ -1,27 +1,22 @@
-package com.example.proyectonpi
+package com.example.proyectonpi.ui.vistas
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proyectonpi.R
+import com.example.proyectonpi.ui.vistas.CircularMenuView
 
-class Pantalla1 : AppCompatActivity() {
+class Pantalla1 : AppCompatActivity(), CircularMenuView.OnOptionSelectedListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla1_layout)
 
-        // Configurar listeners para los botones
-        findViewById<Button>(R.id.option_1).setOnClickListener {
-            Toast.makeText(this, "Opción 1 seleccionada", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<Button>(R.id.option_2).setOnClickListener {
-            Toast.makeText(this, "Opción 2 seleccionada", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<Button>(R.id.option_3).setOnClickListener {
-            Toast.makeText(this, "Opción 3 seleccionada", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<Button>(R.id.option_4).setOnClickListener {
-            Toast.makeText(this, "Opción 4 seleccionada", Toast.LENGTH_SHORT).show()
-        }
+        val circularMenu = findViewById<CircularMenuView>(R.id.circularMenu)
+        circularMenu.setOnOptionSelectedListener(this)
+    }
+
+    override fun onOptionSelected(option: String) {
+        Toast.makeText(this, "Opción seleccionada: $option", Toast.LENGTH_SHORT).show()
     }
 }

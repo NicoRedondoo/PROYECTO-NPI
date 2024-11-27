@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:rotation="0"
+    android:scaleX="1"
+    android:scaleY="1">
+
+    <!-- Otras vistas que puedas tener en pantalla (por ejemplo, texto, botones, etc.) -->
+
+    <!-- CustomView CircularMenuView en la parte inferior -->
+    <com.example.proyectonpi.ui.vistas.CircularMenuView
+        android:id="@+id/circularMenu"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
