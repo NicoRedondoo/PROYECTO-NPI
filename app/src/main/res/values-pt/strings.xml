@@ -1,4 +1,6 @@
 <resources>
     <string name="screen_touch_message">Toque na tela para começar</string>
     <string name="screen_touch_message2">Tela tocada. Iniciando...</string>
+    <string name="bienvenido">BEM-VINDO</string>
+    <string name="seleccion_idioma">Selecione o idiom</string>
 </resources>

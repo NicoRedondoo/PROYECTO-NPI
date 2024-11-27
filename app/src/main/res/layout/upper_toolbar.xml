@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#dddddd"
+    android:padding="8dp"
+    android:gravity="center_vertical">
+
+    <ImageButton
+        android:id="@+id/left_button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="Botón izquierdo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ayuda" />
+
+    <ImageView
+        android:id="@+id/center_image"
+        android:layout_width="0dp"
+        android:layout_height="91dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_weight="1"
+        android:contentDescription="Imagen central"
+        android:src="@drawable/logohorizontal" />
+
+    <ImageButton
+        android:id="@+id/right_button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="Botón derecho"
+        android:scaleType="fitCenter"
+        android:src="@drawable/miperfil" />
+
+</LinearLayout>

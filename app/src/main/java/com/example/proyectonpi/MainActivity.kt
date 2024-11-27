@@ -1,13 +1,12 @@
 package com.example.proyectonpi
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.widget.Button
-import com.example.proyectonpi.ui.vistas.Pantalla1
 import java.util.Locale
+import android.content.Intent
 
 
 
@@ -21,9 +20,8 @@ class MainActivity : AppCompatActivity() {
         Locale.setDefault(locale)
         val config = resources.configuration
         config.setLocale(locale)
-
         resources.updateConfiguration(config, resources.displayMetrics)
-        // Aquí podrías recargar la actividad o cambiar el contenido de la UI si es necesario
+        // Reacargar actividad
         recreate()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,35 +41,36 @@ class MainActivity : AppCompatActivity() {
         btnSpanish.setOnClickListener {
             setLanguage("es")
         }
-
         btnEnglish.setOnClickListener {
             setLanguage("en")
         }
-
         btnFrench.setOnClickListener {
             setLanguage("fr")
         }
-
         btnGerman.setOnClickListener {
             setLanguage("de")
         }
-
         btnItalian.setOnClickListener {
             setLanguage("it")
         }
-
         btnPortuguese.setOnClickListener {
             setLanguage("pt")
         }
 
         // Configurar el listener de clic para detectar cuando se toca la pantalla
         mainLayout.setOnClickListener {
-            // Mostrar un mensaje Toast cuando se toque la pantalla
-            val message = getString(R.string.screen_touch_message2)  // Usar la cadena traducida
+//            // Crear un Intent para iniciar la nueva actividad
+//            val intent = Intent(this@MainActivity, GestionActivity::class.java)
+//
+//            // Iniciar la nueva actividad
+//            startActivity(intent)
+
+            // Mostrar un mensaje Toast
+            val message = getString(R.string.screen_touch_message2)
             Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
-            val intent = Intent(this@MainActivity, Pantalla1::class.java)
-            startActivity(intent)
         }
+
+
     }
 }
 
