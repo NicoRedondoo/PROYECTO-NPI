@@ -7,8 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import android.widget.Button
 import java.util.Locale
 import android.content.Intent
-
-
+import android.content.res.Configuration
 
 
 // Asegúrate de que el paquete coincida con el de tu proyecto
@@ -18,9 +17,12 @@ class MainActivity : AppCompatActivity() {
     private fun setLanguage(languageCode: String) {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
-        val config = resources.configuration
+        val config = Configuration(resources.configuration)
         config.setLocale(locale)
-        resources.updateConfiguration(config, resources.displayMetrics)
+
+        // Actualizar la configuración del contexto actual
+        baseContext.createConfigurationContext(config)
+
         // Reacargar actividad
         recreate()
     }
@@ -60,10 +62,10 @@ class MainActivity : AppCompatActivity() {
         // Configurar el listener de clic para detectar cuando se toca la pantalla
         mainLayout.setOnClickListener {
 //            // Crear un Intent para iniciar la nueva actividad
-//            val intent = Intent(this@MainActivity, GestionActivity::class.java)
+            val intent = Intent(this@MainActivity, Pantalla1::class.java)
 //
 //            // Iniciar la nueva actividad
-//            startActivity(intent)
+            startActivity(intent)
 
             // Mostrar un mensaje Toast
             val message = getString(R.string.screen_touch_message2)
