@@ -3,6 +3,7 @@ package com.example.proyectonpi.ui.vistas
 import android.util.Log
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -13,6 +14,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import com.example.proyectonpi.GestionActivity
 import com.example.proyectonpi.R
 import kotlin.math.abs
 import kotlin.math.cos
@@ -47,11 +49,11 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
         onOptionSelectedListener = listener
     }
     private val options = listOf(
-        MenuOption("Mi perfil", R.drawable.miperfil, 0f),
-        MenuOption("Información", R.drawable.info, 60f),
+        MenuOption("Mi perfil", R.drawable.novedades, 0f),
+        MenuOption("Información", R.drawable.comedor, 60f),
         MenuOption("Gestión", R.drawable.gestion, 120f),
-        MenuOption("Comedores", R.drawable.comedor, 180f),
-        MenuOption("Novedades", R.drawable.novedades, 240f),
+        MenuOption("Comedores", R.drawable.info, 180f),
+        MenuOption("Novedades", R.drawable.miperfil, 240f),
         MenuOption("Localización", R.drawable.localizacion, 300f)
     )
     private val optionBitmaps = mutableMapOf<Int, Bitmap>()
@@ -74,8 +76,8 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     private var outerRadius = 600f  // Radio externo (corona)
 
     private var initialAngle = 0f
-    private var swipeThreshold = 200
-
+    private var swipeThreshold = 300
+    private var touchSlop = 20
 
     private val outerRect = RectF()
     private val innerRect = RectF()
@@ -85,12 +87,6 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-
-        // Carga los íconos solo una vez, al redimensionar
-        options.forEach { option ->
-            val bitmap = BitmapFactory.decodeResource(resources, option.imageResId)
-            optionBitmaps[option.imageResId] = bitmap
-        }
 
         centerX = (w / 2).toFloat()
         centerY = h.toFloat() // Colocar en la parte inferior
@@ -102,15 +98,12 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
         // Dibujar el círculo blanco en el centro
         canvas.drawCircle(centerX, centerY, innerRadius, whiteCirclePaint)
 
-        val sweepAngle = 360f / options.size  // Cambiado para ser dinámico según el número de opciones
+        val sweepAngle = 360f / options.size
         var startAngle = rotationAngle
 
-        // Dibujar las opciones en el anillo de la corona
         for (i in options.indices) {
-            // Usamos el color de la opción
             paint.color = colors[i]
 
-            // Dibujar el arco exterior del anillo
             outerRect.set(
                 centerX - outerRadius, centerY - outerRadius,
                 centerX + outerRadius, centerY + outerRadius
@@ -120,28 +113,19 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
                 centerX + innerRadius, centerY + innerRadius
             )
 
-            // Guardar el estado del canvas para recortar el centro
             canvas.save()
-
-            // Dibujar el arco exterior
             canvas.drawArc(outerRect, startAngle, sweepAngle, true, paint)
 
-            // Usar PorterDuff.Mode.CLEAR para "borrar" el interior y crear la forma de anillo
-            paint.color = Color.WHITE // Establecemos el color del pincel a blanco
+            paint.color = Color.WHITE
             canvas.drawArc(innerRect, startAngle, sweepAngle, true, paint)
-
-            // Restaurar el estado del canvas
             canvas.restore()
 
-            // Dibujar los iconos en el anillo entre los radios
             val iconAngle = Math.toRadians((startAngle + sweepAngle / 2).toDouble())
             val iconX = centerX + ((innerRadius + (outerRadius - innerRadius) * 0.5) * cos(iconAngle)).toFloat()
             val iconY = centerY + ((innerRadius + (outerRadius - innerRadius) * 0.5) * sin(iconAngle)).toFloat()
 
-            // Redimensionar el icono a 20px
             val iconSize = 200
 
-            // Dibujar el icono en el ángulo correcto
             val iconBitmap = BitmapFactory.decodeResource(resources, options[i].imageResId)
             val iconRect = Rect(
                 (iconX - iconSize / 2).toInt(),
@@ -151,73 +135,63 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
             )
             canvas.drawBitmap(iconBitmap, null, iconRect, null)
 
-            // Dibujar el texto en el anillo
-            //val textAngle = Math.toRadians((startAngle + sweepAngle / 2).toDouble())
-            //val textX = centerX + ((innerRadius + (outerRadius - innerRadius) * 0.5) * cos(textAngle)).toFloat()
-            //val textY = centerY + ((innerRadius + (outerRadius - innerRadius) * 0.5) * sin(textAngle)).toFloat()
-            //canvas.drawText(options[i].name, textX, textY, textPaint)
-
             startAngle += sweepAngle
         }
 
-        // Mostrar el nombre del item en la parte superior de la rueda
+        // Actualizar el nombre de la opción seleccionada
         val selectedOptionIndex = getSelectedOption()
         val selectedOption = options[selectedOptionIndex]
 
-        // Dibujar el nombre de la opción seleccionada en la parte superior
         val nameTextX = centerX
-        val nameTextY = centerY - outerRadius - 30f // Ajuste de la posición Y para que se dibuje arriba
+        val nameTextY = centerY - outerRadius - 30f
         canvas.drawText(selectedOption.name, nameTextX, nameTextY, textPaint)
     }
 
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        // Verificar si el toque está dentro del área de la rueda
-        val distanceFromCenter = Math.sqrt(
-            Math.pow(event.x - centerX.toDouble(), 2.0) + Math.pow(event.y - centerY.toDouble(), 2.0)
-        )
-        if (distanceFromCenter < outerRadius) {
-            // Solo manejar el toque si está dentro de la rueda
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    initialAngle = event.x // Guardar posición inicial
-                }
-                MotionEvent.ACTION_MOVE -> {
-                    // Detectar el deslizamiento
-                    val deltaX = event.x - initialAngle
-                    if (abs(deltaX) > swipeThreshold) {
-                        if (deltaX > 0) {
-                            // Deslizar a la derecha (rotar en sentido horario)
-                            rotationAngle += 60f
-                        } else {
-                            // Deslizar a la izquierda (rotar en sentido antihorario)
-                            rotationAngle -= 60f
-                        }
-                        initialAngle = event.x // Actualizar el ángulo inicial
-                        invalidate()  // Redibujar la vista
 
-                        // Detectar el ítem superior actual
-                        val selectedOptionIndex = getSelectedOption()
-                        val selectedOption = options[selectedOptionIndex]
-
-                        // Notificar el cambio del ítem superior
-                        onTopItemChangeListener?.onTopItemChanged(selectedOption.name)
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                initialAngle = event.x // Guardar posición inicial
+            }
+            MotionEvent.ACTION_MOVE -> {
+                // Detectar el deslizamiento
+                val deltaX = event.x - initialAngle
+                if (abs(deltaX) > swipeThreshold) {
+                    if (deltaX > 0) {
+                        // Deslizar a la derecha (rotar en sentido horario)
+                        rotationAngle += 60f
+                    } else {
+                        // Deslizar a la izquierda (rotar en sentido antihorario)
+                        rotationAngle -= 60f
                     }
-                }
-                MotionEvent.ACTION_UP -> {
+                    initialAngle = event.x // Actualizar el ángulo inicial
+                    invalidate()  // Redibujar la vista
+
+                    // Detectar el ítem superior actual
                     val selectedOptionIndex = getSelectedOption()
                     val selectedOption = options[selectedOptionIndex]
-
-                    // Imprimir el ángulo de selección y la opción seleccionada
-                    Log.d("CircularMenuView", "Ángulo seleccionado: $rotationAngle°")
-                    Log.d("CircularMenuView", "Opción seleccionada: $selectedOption")
-                    onOptionSelectedListener?.onOptionSelected(selectedOption.name)
+                    // Notificar el cambio del ítem superior
+                    onTopItemChangeListener?.onTopItemChanged(selectedOption.name)
                 }
             }
-            return true // Si el toque fue manejado por la rueda, devolver true
-        }
+            MotionEvent.ACTION_UP -> {
+                val selectedOptionIndex = getSelectedOption()
+                val selectedOption = options[selectedOptionIndex]
 
-        return super.onTouchEvent(event) // Si no fue un toque en la rueda, delegar el evento a otras vistas (botones)
+
+                // Imprimir el ángulo de selección y la opción seleccionada
+                Log.d("CircularMenuView", "Ángulo seleccionado: $rotationAngle°")
+                Log.d("CircularMenuView", "Opción seleccionada: $selectedOption")
+                onOptionSelectedListener?.onOptionSelected(selectedOption.name)
+                val deltaX = event.x - initialAngle
+                if (deltaX < touchSlop) {
+                    Log.d("CircularMenuView", "$deltaX Tocado")
+                    openSubmenu(selectedOption.name)
+                }
+                }
+            }
+        return true // Si el toque fue manejado por la rueda, devolver true
     }
 
 
@@ -229,6 +203,19 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
         val adjustedAngle = normalizedAngle + 30f
         val closestIndex = ((adjustedAngle / sweepAngle).toInt()) % 6
         return closestIndex
+    }
+
+    private fun openSubmenu(optionName: String) {
+        val intent = when (optionName) {
+            "Gestión" -> Intent(context, GestionActivity::class.java)
+            "Mi perfil" -> Intent(context, GestionActivity::class.java)
+            "Información" -> Intent(context, GestionActivity::class.java)
+            "Comedores" -> Intent(context, GestionActivity::class.java)
+            "Novedades" -> Intent(context, GestionActivity::class.java)
+            "Localización" -> Intent(context, GestionActivity::class.java)
+            else -> null
+        }
+        intent?.let { context.startActivity(it) }
     }
 
 }

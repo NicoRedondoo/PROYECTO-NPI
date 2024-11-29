@@ -6,35 +6,29 @@
     android:scaleX="1"
     android:scaleY="1">
 
-    <!-- CustomView CircularMenuView en la parte inferior -->
-    <com.example.proyectonpi.ui.vistas.CircularMenuView
-        android:id="@+id/circularMenu"
+    <com.example.proyectonpi.view.UpperBar
+        android:id="@+id/upperBar"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="wrap_content" />
+
+    <!-- CustomView CircularMenuView en la parte inferior -->
 
 
     <!-- Otras vistas que puedas tener en pantalla (por ejemplo, texto, botones, etc.) -->
 
-    <Button
-        android:id="@+id/summaryButton"
+    <com.example.proyectonpi.ui.vistas.CircularMenuView
+        android:id="@+id/circularMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_alignParentBottom="true"
-        android:text="Entrar" />
+        />
 
     <TextView
         android:id="@+id/summaryText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/summaryButton"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/upperBar"
         android:padding="20dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginTop="150dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:background="#ADD8E6"

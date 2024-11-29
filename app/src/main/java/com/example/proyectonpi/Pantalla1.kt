@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +12,6 @@ import com.example.proyectonpi.ui.vistas.CircularMenuView
 class Pantalla1 : AppCompatActivity() {
 
     private lateinit var circularMenu: CircularMenuView
-    private lateinit var summaryButton: Button
     private lateinit var summaryText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +20,7 @@ class Pantalla1 : AppCompatActivity() {
 
         circularMenu = findViewById(R.id.circularMenu)  // Referencia correcta
 
-        summaryButton = findViewById(R.id.summaryButton)
+
         summaryText = findViewById(R.id.summaryText)
 
         circularMenu.setOnOptionSelectedListener(object : CircularMenuView.OnOptionSelectedListener {
@@ -32,9 +30,6 @@ class Pantalla1 : AppCompatActivity() {
             }
         })
 
-        summaryButton.setOnClickListener {
-            startActivity(Intent(this, GestionActivity::class.java))
-        }
     }
 
     private fun showSummary(option: String) {
