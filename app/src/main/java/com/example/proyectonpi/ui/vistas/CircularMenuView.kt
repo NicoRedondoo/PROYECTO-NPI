@@ -15,6 +15,11 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.example.proyectonpi.GestionActivity
+import com.example.proyectonpi.MiPerfilActivity
+import com.example.proyectonpi.LocalizacionActivity
+import com.example.proyectonpi.NovedadesActivity
+import com.example.proyectonpi.InformacionActivity
+import com.example.proyectonpi.ComedorActivity
 import com.example.proyectonpi.R
 import kotlin.math.abs
 import kotlin.math.cos
@@ -208,11 +213,11 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     private fun openSubmenu(optionName: String) {
         val intent = when (optionName) {
             "Gestión" -> Intent(context, GestionActivity::class.java)
-            "Mi perfil" -> Intent(context, GestionActivity::class.java)
-            "Información" -> Intent(context, GestionActivity::class.java)
-            "Comedores" -> Intent(context, GestionActivity::class.java)
-            "Novedades" -> Intent(context, GestionActivity::class.java)
-            "Localización" -> Intent(context, GestionActivity::class.java)
+            "Mi perfil" -> Intent(context, MiPerfilActivity::class.java)
+            "Información" -> Intent(context, InformacionActivity::class.java)
+            "Comedores" -> Intent(context, ComedorActivity::class.java)
+            "Novedades" -> Intent(context, NovedadesActivity::class.java)
+            "Localización" -> Intent(context, LocalizacionActivity::class.java)
             else -> null
         }
         intent?.let { context.startActivity(it) }

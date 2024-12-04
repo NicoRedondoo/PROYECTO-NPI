@@ -10,21 +10,16 @@ import android.content.Intent
 import android.content.res.Configuration
 
 
-// Asegúrate de que el paquete coincida con el de tu proyecto
-
 
 class MainActivity : AppCompatActivity() {
     private fun setLanguage(languageCode: String) {
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-        val config = Configuration(resources.configuration)
-        config.setLocale(locale)
-
-        // Actualizar la configuración del contexto actual
-        baseContext.createConfigurationContext(config)
-
-        // Reacargar actividad
-        recreate()
+        val locale = Locale(languageCode)   // Crear un objeto Locale con el código de idioma indicado
+        Locale.setDefault(locale)   // Establecer el idioma predeterminado global de la aplicación
+        val config = resources.configuration    // Obtener la configuración actual de los recursos
+        config.setLocale(locale)    // Establecer el idioma de la configuración de los recursos
+        val context = createConfigurationContext(config)    // Crear un nuevo contexto con la configuración modificada
+        resources.updateConfiguration(config, resources.displayMetrics) // Establecer el contexto actualizado en la actividad
+        recreate()  // Reacargar la actividad para aplicar el cambio de idioma
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

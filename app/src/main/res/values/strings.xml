@@ -6,6 +6,11 @@
     <string name="seleccion_idioma">Seleccione el idioma</string>
     <string name="title_activity_gestion">GestionActivity</string>
     <string name="title_activity_help">HelpActivity</string>
+    <string name="title_activity_localizacion">LocalizacionActivity</string>
+    <string name="title_activity_novedades">NovedadesActivity</string>
+    <string name="title_activity_informacion">InformacionActivity</string>
+    <string name="title_activity_comedor">ComedorActivity</string>
+    <string name="title_activity_mi_perfil">MiPerfilActivity</string>
 </resources>
 
 
