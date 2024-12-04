@@ -12,6 +12,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.RectF
 import android.util.AttributeSet
+import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import com.example.proyectonpi.GestionActivity
@@ -29,6 +30,61 @@ data class MenuOption(
 
 class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
+
+    private var gestureDetector: GestureDetector
+    private var isSweeping = false
+
+    init {
+        gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+
+            override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
+                Log.d("CircularMenuView", "Toque simple confirmado")
+                val selectedOptionIndex = getSelectedOption()
+                val selectedOption = options[selectedOptionIndex]
+                onOptionSelectedListener?.onOptionSelected(selectedOption.name)
+
+                return true
+            }
+
+            override fun onDoubleTap(e: MotionEvent): Boolean {
+                Log.d("CircularMenuView", "Doble toque detectado")
+                val selectedOptionIndex = getSelectedOption()
+                val selectedOption = options[selectedOptionIndex]
+                openSubmenu(selectedOption.name)
+                return true
+            }
+
+            override fun onScroll(
+                e1: MotionEvent,
+                e2: MotionEvent,
+                distanceX: Float,
+                distanceY: Float
+            ): Boolean {
+                // Solo detectamos movimientos horizontales significativos
+                val deltaX = e2.x - e1.x
+                if (!isSweeping && abs(deltaX) > swipeThreshold) { // Si el deslizamiento es mayor que el umbral
+                    isSweeping = true
+                    if (deltaX > 0) {
+                        // Swipe a la derecha
+                        rotationAngle += 60f
+                    } else {
+                        // Swipe a la izquierda
+                        rotationAngle -= 60f
+                    }
+
+                    rotationAngle = (rotationAngle % 360 + 360) % 360 // Normalizar el ángulo
+                    invalidate() // Redibujar para reflejar el cambio
+
+                    // Notificar cambio de opción
+                    val selectedOptionIndex = getSelectedOption()
+                    val selectedOption = options[selectedOptionIndex]
+                    onTopItemChangeListener?.onTopItemChanged(selectedOption.name)
+                }
+                return true
+            }
+        })
+    }
+
     interface OnOptionSelectedListener {
         fun onOptionSelected(option: String)
     }
@@ -38,10 +94,6 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     }
 
     private var onTopItemChangeListener: OnTopItemChangeListener? = null
-
-    fun setOnTopItemChangeListener(listener: OnTopItemChangeListener) {
-        onTopItemChangeListener = listener
-    }
 
     private var onOptionSelectedListener: OnOptionSelectedListener? = null
 
@@ -149,49 +201,11 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
 
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                initialAngle = event.x // Guardar posición inicial
-            }
-            MotionEvent.ACTION_MOVE -> {
-                // Detectar el deslizamiento
-                val deltaX = event.x - initialAngle
-                if (abs(deltaX) > swipeThreshold) {
-                    if (deltaX > 0) {
-                        // Deslizar a la derecha (rotar en sentido horario)
-                        rotationAngle += 60f
-                    } else {
-                        // Deslizar a la izquierda (rotar en sentido antihorario)
-                        rotationAngle -= 60f
-                    }
-                    initialAngle = event.x // Actualizar el ángulo inicial
-                    invalidate()  // Redibujar la vista
-
-                    // Detectar el ítem superior actual
-                    val selectedOptionIndex = getSelectedOption()
-                    val selectedOption = options[selectedOptionIndex]
-                    // Notificar el cambio del ítem superior
-                    onTopItemChangeListener?.onTopItemChanged(selectedOption.name)
-                }
-            }
-            MotionEvent.ACTION_UP -> {
-                val selectedOptionIndex = getSelectedOption()
-                val selectedOption = options[selectedOptionIndex]
-
-
-                // Imprimir el ángulo de selección y la opción seleccionada
-                Log.d("CircularMenuView", "Ángulo seleccionado: $rotationAngle°")
-                Log.d("CircularMenuView", "Opción seleccionada: $selectedOption")
-                onOptionSelectedListener?.onOptionSelected(selectedOption.name)
-                val deltaX = event.x - initialAngle
-                if (deltaX < touchSlop) {
-                    Log.d("CircularMenuView", "$deltaX Tocado")
-                    openSubmenu(selectedOption.name)
-                }
-                }
-            }
-        return true // Si el toque fue manejado por la rueda, devolver true
+        val result = gestureDetector.onTouchEvent(event)
+        if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+            isSweeping = false // Reiniciar la variable al soltar el dedo
+        }
+        return result
     }
 
 

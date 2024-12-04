@@ -25,7 +25,7 @@ class Pantalla1 : AppCompatActivity() {
 
         circularMenu.setOnOptionSelectedListener(object : CircularMenuView.OnOptionSelectedListener {
             override fun onOptionSelected(option: String) {
-                Log.d("Option", option)
+                Log.d("CircularMenuView", option)
                 showSummary(option)
             }
         })
