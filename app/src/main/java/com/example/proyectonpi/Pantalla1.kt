@@ -55,7 +55,7 @@ class Pantalla1 : AppCompatActivity() {
             "Gestión" -> startActivity(Intent(this, GestionActivity::class.java))
             "Comedores" -> Toast.makeText(this, "Opción no implementada", Toast.LENGTH_SHORT).show()
             "Novedades" -> Toast.makeText(this, "Opción no implementada", Toast.LENGTH_SHORT).show()
-            "Localización" -> Toast.makeText(this, "Opción no implementada", Toast.LENGTH_SHORT).show()
+            "Localización" -> startActivity(Intent(this, LocalizacionActivity::class.java))
             "Informacióm" -> Toast.makeText(this, "Opción no implementada", Toast.LENGTH_SHORT).show()
         }
     }

@@ -13,6 +13,31 @@
         android:theme="@style/Theme.PROYECTONPI"
         tools:targetApi="31">
         <activity
+            android:name=".MiPerfilActivity"
+            android:exported="false"
+            android:label="@string/title_activity_mi_perfil"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".ComedorActivity"
+            android:exported="false"
+            android:label="@string/title_activity_comedor"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".InformacionActivity"
+            android:exported="false"
+            android:label="@string/title_activity_informacion"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".NovedadesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_novedades"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".LocalizacionActivity"
+            android:exported="false"
+            android:label="@string/title_activity_localizacion"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
             android:name=".HelpActivity"
             android:exported="false"
             android:label="@string/title_activity_help"
@@ -32,7 +57,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Pantalla1"
+        <activity
+            android:name=".Pantalla1"
             android:exported="true" />
         <activity android:name=".ui.vistas.Pantalla1" />
     </application>
