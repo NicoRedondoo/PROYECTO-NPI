@@ -1,10 +1,8 @@
 package com.example.proyectonpi.ui.vistas
 
 import android.util.Log
-
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
@@ -30,7 +28,8 @@ import kotlin.math.sin
 data class MenuOption(
     val name: String,
     val imageResId: Int, // ID de la imagen del recurso
-    var angle: Float // Ángulo de la opción en el círculo
+    var angle: Float, // Ángulo de la opción en el círculo
+    val description: String // Add description field
 )
 
 class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, attrs) {
@@ -38,16 +37,17 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
 
     private var gestureDetector: GestureDetector
     private var isSweeping = false
+    private val micIconResId = R.drawable.microfono_1
+    private lateinit var micRect: Rect
 
     init {
-        gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+        val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
 
             override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
                 Log.d("CircularMenuView", "Toque simple confirmado")
                 val selectedOptionIndex = getSelectedOption()
                 val selectedOption = options[selectedOptionIndex]
                 onOptionSelectedListener?.onOptionSelected(selectedOption.name)
-
                 return true
             }
 
@@ -65,41 +65,39 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
                 distanceX: Float,
                 distanceY: Float
             ): Boolean {
-                // Solo detectamos movimientos horizontales significativos
+                // Only detect significant horizontal movements
                 val deltaX = e2.x - e1.x
-                if (!isSweeping && abs(deltaX) > swipeThreshold) { // Si el deslizamiento es mayor que el umbral
+                if (!isSweeping && abs(deltaX) > swipeThreshold) { // If swipe is greater than threshold
                     isSweeping = true
                     if (deltaX > 0) {
-                        // Swipe a la derecha
+                        // Swipe right
                         rotationAngle += 60f
+                        Log.d("CircularMenuView", "Swipe a la derecha detectado")
                     } else {
-                        // Swipe a la izquierda
+                        // Swipe left
                         rotationAngle -= 60f
+                        Log.d("CircularMenuView", "Swipe a la izquierda detectado")
                     }
 
-                    rotationAngle = (rotationAngle % 360 + 360) % 360 // Normalizar el ángulo
-                    invalidate() // Redibujar para reflejar el cambio
+                    rotationAngle = (rotationAngle % 360 + 360) % 360 // Normalize angle
+                    // Notify top item change
 
-                    // Notificar cambio de opción
                     val selectedOptionIndex = getSelectedOption()
                     val selectedOption = options[selectedOptionIndex]
-                    onTopItemChangeListener?.onTopItemChanged(selectedOption.name)
+                    Log.d("CircularMenuView", "SelectedOption: $selectedOption")
+                    onOptionSelectedListener?.onOptionSelected(selectedOption.name)
 
+                    invalidate() // Redraw to reflect change
                 }
                 return true
             }
-        })
+        }
+        gestureDetector = GestureDetector(context, gestureListener)
     }
 
     interface OnOptionSelectedListener {
         fun onOptionSelected(option: String)
     }
-
-    interface OnTopItemChangeListener {
-        fun onTopItemChanged(option: String)
-    }
-
-    private var onTopItemChangeListener: OnTopItemChangeListener? = null
 
     private var onOptionSelectedListener: OnOptionSelectedListener? = null
 
@@ -107,15 +105,14 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     fun setOnOptionSelectedListener(listener: OnOptionSelectedListener) {
         onOptionSelectedListener = listener
     }
-    private val options = listOf(
-        MenuOption("Mi perfil", R.drawable.novedades, 0f),
-        MenuOption("Información", R.drawable.comedor, 60f),
-        MenuOption("Gestión", R.drawable.gestion, 120f),
-        MenuOption("Comedores", R.drawable.info, 180f),
-        MenuOption("Novedades", R.drawable.miperfil, 240f),
-        MenuOption("Localización", R.drawable.localizacion, 300f)
+    val options = listOf(
+        MenuOption("Mi perfil", R.drawable.novedades_1, 0f, "Entérate de todas las actividades y noticias de la ETSIIT, ¡no te pierdas ninguna!"),
+        MenuOption("Información", R.drawable.comedor_2, 60f, "Accede a toda la información que necesitas sobre procedimientos, becas, matriculación, Erasmus..."),
+        MenuOption("Gestión", R.drawable.gestion_1, 120f, "Aquí podrás poner en orden tu papeleo con la UGR."),
+        MenuOption("Comedores", R.drawable.informacion_1, 180f, "Infórmate del menú de la semana, ¡y pide el tuyo!"),
+        MenuOption("Novedades", R.drawable.miperfil1, 240f, "¡Descubre la ETSIIT de forma mucho más personalizada!"),
+        MenuOption("Localización", R.drawable.localizacion1, 300f, "¿Estás perdido?  Consulta la ubicación de aulas y puntos de interés de la ETSIIT")
     )
-    private val optionBitmaps = mutableMapOf<Int, Bitmap>()
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -124,11 +121,11 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
         textAlign = Paint.Align.CENTER
     }
 
-    private val colors = listOf(
-        Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.CYAN, Color.MAGENTA
-    )
-
     private var rotationAngle = 0f
+
+    private val colors = listOf(
+        Color.rgb(255, 77, 77), Color.rgb(204, 62, 62),Color.rgb(255, 77, 77), Color.rgb(204, 62, 62),Color.rgb(255, 77, 77), Color.rgb(204, 62, 62)
+    )
     private var centerX = 0f
     private var centerY = 0f
     private var innerRadius = 350f  // Radio interno (corona)
@@ -161,6 +158,8 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
         var startAngle = rotationAngle
 
         for (i in options.indices) {
+
+            // Calcular el ángulo central del segmento
             paint.color = colors[i]
 
             outerRect.set(

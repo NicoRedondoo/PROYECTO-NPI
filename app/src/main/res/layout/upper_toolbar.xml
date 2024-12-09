@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#dddddd"
+    android:background="#FF4D4D"
     android:padding="8dp"
     android:gravity="center_vertical">
 
@@ -14,7 +14,7 @@
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="Botón izquierdo"
         android:scaleType="fitCenter"
-        android:src="@drawable/ayuda" />
+        android:src="@drawable/ayuda_1" />
 
     <ImageView
         android:id="@+id/center_image"
@@ -33,6 +33,6 @@
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="Botón derecho"
         android:scaleType="fitCenter"
-        android:src="@drawable/miperfil" />
+        android:src="@drawable/miperfil1" />
 
 </LinearLayout>

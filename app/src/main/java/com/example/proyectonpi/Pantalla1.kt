@@ -1,12 +1,15 @@
 package com.example.proyectonpi
-import android.content.Intent
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.StyleSpan
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.text.font.Typeface
 import com.example.proyectonpi.ui.vistas.CircularMenuView
 
 class Pantalla1 : AppCompatActivity() {
@@ -18,7 +21,7 @@ class Pantalla1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pantalla1_layout)
 
-        circularMenu = findViewById(R.id.circularMenu)  // Referencia correcta
+        circularMenu = findViewById(R.id.circularMenu)
         summaryText = findViewById(R.id.summaryText)
 
         circularMenu.setOnOptionSelectedListener(object : CircularMenuView.OnOptionSelectedListener {
@@ -26,52 +29,46 @@ class Pantalla1 : AppCompatActivity() {
                 Log.d("CircularMenuView", option)
                 updateTopOption(option)
                 showSummary(option)
-
             }
         })
 
+        // Set initial summary text (optional)
+        summaryText.text = "Desliza para visualizar el contenido"
     }
 
     private fun updateTopOption(option: String) {
         summaryText.text = "Opción superior: $option"
+        Log.d("CircularMenuView", "Opción superior: $option")
     }
 
     private fun showSummary(option: String) {
-        val summary = when (option) {
-            "Gestión" -> "Gestión:\n- Opción 1\n- Opción 2\n- Opción 3"
-            "Comedores" -> "Comedores:\n- Opción 1\n- Opción 2"
-            "Localización" -> "Localización:\n- Opción 1"
-            "Mi perfil" -> "Detalles de tu perfil."
-            "Novedades" -> "Últimas noticias y eventos."
-            "Información" -> "Información general del sistema."
-            else -> "No hay resumen disponible."
-        }
+        val selectedOption = circularMenu.options.find { it.name == option }
+        if (selectedOption != null) {
+            val boldSpan = SpannableString(selectedOption.name)
+            boldSpan.setSpan(StyleSpan(android.graphics.Typeface.BOLD), 0, boldSpan.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
-        summaryText.visibility = View.VISIBLE
-        summaryText.text = summary
-    }
+            val summary = SpannableStringBuilder()
+            summary.append(boldSpan)
+            // Add line break using "\n" or System.getProperty("line.separator")
+            summary.append("\n") // This is the line break
+            summary.append("\n")
+            summary.append(selectedOption.description)
 
+            summaryText.text = summary
 
-    private fun navigateToOption(option: String) {
-        Log.d("Option2", option)
-        when (option) {
-            "Mi perfil" -> Toast.makeText(this, "Opción no implementada", Toast.LENGTH_SHORT).show()
-            "Gestión" -> startActivity(Intent(this, GestionActivity::class.java))
-            "Comedores" -> Toast.makeText(this, "Opción no implementada", Toast.LENGTH_SHORT).show()
-            "Novedades" -> Toast.makeText(this, "Opción no implementada", Toast.LENGTH_SHORT).show()
-            "Localización" -> startActivity(Intent(this, LocalizacionActivity::class.java))
-            "Informacióm" -> Toast.makeText(this, "Opción no implementada", Toast.LENGTH_SHORT).show()
+            summaryText.text = summary
+        } else {
+            Log.w("Pantalla1", "Option not found: $option")
+            summaryText.visibility = View.GONE  // Hide if option not found
         }
     }
+
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        val handled = circularMenu.onTouchEvent(event)  // Pasa el evento a CircularMenuView
+        val handled = circularMenu.onTouchEvent(event)
         return handled || super.dispatchTouchEvent(event)
     }
 
-    private fun navigateToSelectedPage(summary: String) {
-        Toast.makeText(this, "Ir a la página relacionada", Toast.LENGTH_SHORT).show()
-    }
 }
 
 
