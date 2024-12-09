@@ -19,17 +19,21 @@ class Pantalla1 : AppCompatActivity() {
         setContentView(R.layout.pantalla1_layout)
 
         circularMenu = findViewById(R.id.circularMenu)  // Referencia correcta
-
-
         summaryText = findViewById(R.id.summaryText)
 
         circularMenu.setOnOptionSelectedListener(object : CircularMenuView.OnOptionSelectedListener {
             override fun onOptionSelected(option: String) {
                 Log.d("CircularMenuView", option)
+                updateTopOption(option)
                 showSummary(option)
+
             }
         })
 
+    }
+
+    private fun updateTopOption(option: String) {
+        summaryText.text = "Opción superior: $option"
     }
 
     private fun showSummary(option: String) {

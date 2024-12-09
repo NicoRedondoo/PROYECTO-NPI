@@ -84,6 +84,7 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
                     val selectedOptionIndex = getSelectedOption()
                     val selectedOption = options[selectedOptionIndex]
                     onTopItemChangeListener?.onTopItemChanged(selectedOption.name)
+
                 }
                 return true
             }
@@ -101,6 +102,7 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     private var onTopItemChangeListener: OnTopItemChangeListener? = null
 
     private var onOptionSelectedListener: OnOptionSelectedListener? = null
+
 
     fun setOnOptionSelectedListener(listener: OnOptionSelectedListener) {
         onOptionSelectedListener = listener
