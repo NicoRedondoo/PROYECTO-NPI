@@ -3,4 +3,25 @@
     <string name="screen_touch_message2">Schermo toccato. Avviando...</string>
     <string name="bienvenido">BENVENUTO</string>
     <string name="seleccion_idioma">Seleccione el idioma</string>
+    <string name="iniciar_sesion">Accedere</string>
+    <string name="usuario">Utente</string>
+    <string name="contraseña">Password</string>
+    <string name="iniciar_sesion_mayus">ACCEDERE</string>
+    <string name="crear_cuenta">CREA ACCOUNT</string>
+    <string name="cerrar_sesion">DISCONNETTERSI</string>
+    <string name="sesion_cerrada">Sessione chiusa</string>
+    <string name="completa_campos">Per favore, compila tutti i campi</string>
+    <string name="redirigir_creacion_cuenta">Reindirizzando alla creazione dell account</string>
+    <string name="sesion_iniciada"> Sesión iniciada como $user</string>
+    <string name="hola">Ciao</string>
+    <string name="sesion_iniciada_como">Sessione iniziata come</string>
+
+    <string name="novedades">Novità</string>
+    <string name="comedores">Mense</string>
+    <string name="gestion">Gestione</string>
+    <string name="informacion">Informazioni</string>
+    <string name="miperfil">Il mio profilo</string>
+    <string name="localizacion">Localizzazione</string>
+
+    <string name="desliza">Scorri per visualizzare il contenuto</string>
 </resources>

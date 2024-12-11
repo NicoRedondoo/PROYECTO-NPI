@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.proyectonpi.ui.theme.PROYECTONPITheme
 
-class InformacionActivity : ComponentActivity() {
+class InformacionActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_informacion) // Vincula el archivo XML

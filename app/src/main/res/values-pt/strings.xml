@@ -3,4 +3,25 @@
     <string name="screen_touch_message2">Tela tocada. Iniciando...</string>
     <string name="bienvenido">BEM-VINDO</string>
     <string name="seleccion_idioma">Selecione o idiom</string>
+    <string name="iniciar_sesion">Iniciar sessão</string>
+    <string name="usuario">Usuário</string>
+    <string name="contraseña">Senha</string>
+    <string name="iniciar_sesion_mayus">INICIAR SESSÃO</string>
+    <string name="crear_cuenta">CRIAR CONTA</string>
+    <string name="cerrar_sesion">SAIR DA CONTA</string>
+    <string name="sesion_cerrada">Sessão encerrada</string>
+    <string name="completa_campos">Por favor, preencha todos os campos</string>
+    <string name="redirigir_creacion_cuenta">Redirecionando para a criação de conta</string>
+    <string name="sesion_iniciada"> Sesión iniciada</string>
+    <string name="hola">Olá</string>
+    <string name="sesion_iniciada_como">Sessão iniciada como</string>
+
+    <string name="novedades">Novidades</string>
+    <string name="comedores">Refeitórios</string>
+    <string name="gestion">Gestão</string>
+    <string name="informacion">Informação</string>
+    <string name="miperfil">Mi perfil</string>
+    <string name="localizacion">Localização</string>
+
+    <string name="desliza">Deslize para visualizar o conteúdo</string>
 </resources>

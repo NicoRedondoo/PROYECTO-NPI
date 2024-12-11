@@ -11,6 +11,31 @@
     <string name="title_activity_informacion">InformacionActivity</string>
     <string name="title_activity_comedor">ComedorActivity</string>
     <string name="title_activity_mi_perfil">MiPerfilActivity</string>
+    <string name="title_activity_base">BaseActivity</string>
+
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="iniciar_sesion_mayus">INICIAR SESIÓN</string>
+    <string name="crear_cuenta">CREAR CUENTA</string>
+    <string name="cerrar_sesion">CERRAR SESIÓN</string>
+    <string name="sesion_cerrada">Sesión cerrada</string>
+    <string name="completa_campos">Por favor, completa todos los campos</string>
+    <string name="redirigir_creacion_cuenta">Redirigiendo a creación de cuenta</string>
+    <string name="sesion_iniciada"> Sesión iniciada </string>
+    <string name="hola">Hola</string>
+    <string name="sesion_iniciada_como">Sesión iniciada como</string>
+
+    <string name="novedades">Novedades</string>
+    <string name="comedores">Comedores</string>
+    <string name="gestion">Gestión</string>
+    <string name="informacion">Información</string>
+    <string name="miperfil">Mi perfil</string>
+    <string name="localizacion">Localización</string>
+
+    <string name="desliza">Desliza para visualizar el contenido</string>
+
+
 </resources>
 
 

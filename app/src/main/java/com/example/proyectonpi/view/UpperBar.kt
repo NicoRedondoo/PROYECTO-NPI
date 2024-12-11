@@ -66,14 +66,17 @@ class UpperBar @JvmOverloads constructor(
                 isLoggedIn = true
                 username = user
                 dialog.dismiss()
-                Toast.makeText(context, "Sesión iniciada como $user", Toast.LENGTH_SHORT).show()
+                val message = context.getString(R.string.sesion_iniciada_como) + " $user"
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(context, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+                val message = context.getString(R.string.completa_campos)
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
             }
         }
 
         signupButton.setOnClickListener {
-            Toast.makeText(context, "Redirigiendo a creación de cuenta...", Toast.LENGTH_SHORT).show()
+            val message = context.getString(R.string.redirigir_creacion_cuenta)
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
 
         dialog.show()
@@ -88,13 +91,15 @@ class UpperBar @JvmOverloads constructor(
         val usernameDisplay = dialogView.findViewById<TextView>(R.id.username_display)
         val logoutButton = dialogView.findViewById<Button>(R.id.logout_button)
 
-        usernameDisplay.text = "Hola $username!"
+        val texto = context.getString(R.string.hola) + " $username!"
+        usernameDisplay.text = texto
 
         logoutButton.setOnClickListener {
             isLoggedIn = false
             username = null
             dialog.dismiss()
-            Toast.makeText(context, "Sesión cerrada", Toast.LENGTH_SHORT).show()
+            val message = context.getString(R.string.sesion_cerrada)
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
 
         dialog.show()
