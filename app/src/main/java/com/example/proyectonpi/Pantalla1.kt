@@ -52,6 +52,7 @@ class Pantalla1 : AppCompatActivity() {
             // Add line break using "\n" or System.getProperty("line.separator")
             summary.append("\n") // This is the line break
             summary.append("\n")
+            summary.append("\n")
             summary.append(selectedOption.description)
 
             summaryText.text = summary
