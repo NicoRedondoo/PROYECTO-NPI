@@ -13,6 +13,12 @@ import android.content.res.Configuration
 
 class MainActivity : AppCompatActivity() {
     private fun setLanguage(languageCode: String) {
+        // Guardar el idioma seleccionado en SharedPreferences
+        val sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("language", languageCode)
+        editor.apply()
+
         val locale = Locale(languageCode)   // Crear un objeto Locale con el código de idioma indicado
         Locale.setDefault(locale)   // Establecer el idioma predeterminado global de la aplicación
         val config = resources.configuration    // Obtener la configuración actual de los recursos

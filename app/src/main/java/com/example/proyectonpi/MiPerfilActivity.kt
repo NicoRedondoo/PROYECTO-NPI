@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.proyectonpi.ui.theme.PROYECTONPITheme
 
-class MiPerfilActivity : ComponentActivity() {
+class MiPerfilActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_miperfil) // Vincula el archivo XML

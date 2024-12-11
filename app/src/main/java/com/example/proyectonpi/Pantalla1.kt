@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.text.font.Typeface
 import com.example.proyectonpi.ui.vistas.CircularMenuView
 
-class Pantalla1 : AppCompatActivity() {
+class Pantalla1 : BaseActivity() {
 
     private lateinit var circularMenu: CircularMenuView
     private lateinit var summaryText: TextView
@@ -33,7 +33,8 @@ class Pantalla1 : AppCompatActivity() {
         })
 
         // Set initial summary text (optional)
-        summaryText.text = "Desliza para visualizar el contenido"
+        summaryText.text = getString(R.string.desliza)
+
     }
 
     private fun updateTopOption(option: String) {

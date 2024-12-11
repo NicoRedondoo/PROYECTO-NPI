@@ -10,7 +10,7 @@
         android:id="@+id/login_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar sesión"
+        android:text="@string/iniciar_sesion"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp"
@@ -21,7 +21,7 @@
         android:id="@+id/username_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usuario"
+        android:hint="@string/usuario"
         android:inputType="text"
         android:minHeight="48dp" />
 
@@ -30,7 +30,7 @@
         android:id="@+id/password_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contraseña"
+        android:hint="@string/contraseña"
         android:inputType="textPassword"
         android:layout_marginTop="8dp"
         android:minHeight="48dp" />
@@ -40,13 +40,13 @@
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Iniciar sesión"
+        android:text="@string/iniciar_sesion"
         android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/signup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Crear cuenta"
+        android:text="@string/crear_cuenta"
         android:layout_marginTop="8dp" />
 </LinearLayout>

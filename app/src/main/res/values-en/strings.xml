@@ -3,4 +3,25 @@
     <string name="screen_touch_message2">Screen touched. Starting...</string>
     <string name="bienvenido">WELCOME</string>
     <string name="seleccion_idioma">Select the language</string>
+    <string name="iniciar_sesion">Log in</string>
+    <string name="usuario">User</string>
+    <string name="contraseña">Password</string>
+    <string name="iniciar_sesion_mayus">LOG IN</string>
+    <string name="crear_cuenta">CREATE ACCOUNT</string>
+    <string name="cerrar_sesion">LOG OUT</string>
+    <string name="sesion_cerrada">Session closed</string>
+    <string name="completa_campos">Please fill in all the fields</string>
+    <string name="redirigir_creacion_cuenta">Redirecting to account creation</string>
+    <string name="sesion_iniciada"> Logged in </string>
+    <string name="hola">Hello</string>
+    <string name="sesion_iniciada_como">Session started as</string>
+
+    <string name="novedades">News</string>
+    <string name="comedores">Dining rooms</string>
+    <string name="gestion">Management</string>
+    <string name="informacion">Information</string>
+    <string name="miperfil">My profile</string>
+    <string name="localizacion">Location</string>
+
+    <string name="desliza">Swipe to view the content</string>
 </resources>

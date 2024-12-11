@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.proyectonpi.ui.theme.PROYECTONPITheme
 
-class LocalizacionActivity : ComponentActivity() {
+class LocalizacionActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_localizacion) // Vincula el archivo XML
