@@ -115,7 +115,7 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
         onOptionSelectedListener = listener
     }
     val options = listOf(
-        MenuOption("Mi perfil", R.drawable.mensaje_recibido, 0f, "Entérate de todas las actividades y noticias de la ETSIIT, ¡no te pierdas ninguna!"),
+        MenuOption("Mi Perfil", R.drawable.mensaje_recibido, 0f, "Entérate de todas las actividades y noticias de la ETSIIT, ¡no te pierdas ninguna!"),
         MenuOption("Información", R.drawable.restaurante, 60f, "Accede a toda la información que necesitas sobre procedimientos, becas, matriculación, Erasmus..."),
         MenuOption("Gestión", R.drawable.gestion_1, 120f, "Aquí podrás poner en orden tu papeleo con la UGR."),
         MenuOption("Comedores", R.drawable.informacion_1, 180f, "Infórmate del menú de la semana, ¡y pide el tuyo!"),
@@ -250,7 +250,7 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     fun openSubmenu(optionName: String) {
         val intent = when (optionName) {
             "Gestión" -> Intent(context, GestionActivity::class.java)
-            "Mi perfil" -> Intent(context, MiPerfilActivity::class.java)
+            "Mi Perfil" -> Intent(context, MiPerfilActivity::class.java)
             "Información" -> Intent(context, InformacionActivity::class.java)
             "Comedores" -> Intent(context, ComedorActivity::class.java)
             "Novedades" -> Intent(context, NovedadesActivity::class.java)

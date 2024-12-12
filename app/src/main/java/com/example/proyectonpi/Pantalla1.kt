@@ -14,6 +14,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.proyectonpi.ui.vistas.CircularMenuView
@@ -102,6 +103,7 @@ class Pantalla1 : BaseActivity() {
         }
         override fun onBeginningOfSpeech() {
             Log.d("SpeechRecognition", "Speech started")
+            Toast.makeText(this@Pantalla1, "Escuchando...", Toast.LENGTH_SHORT).show()
         }
         override fun onRmsChanged(p0: Float) {
             Log.d("SpeechRecognition", "RMS energy: $p0")
@@ -109,6 +111,7 @@ class Pantalla1 : BaseActivity() {
         override fun onBufferReceived(p0: ByteArray?) {}
         override fun onEndOfSpeech() {
             Log.d("SpeechRecognition", "Speech ended")
+            Toast.makeText(this@Pantalla1, "Escucha completada", Toast.LENGTH_SHORT).show()
         }
         override fun onError(p0: Int) {
             Log.d("SpeechRecognition", "Error: $p0")
@@ -148,7 +151,19 @@ class Pantalla1 : BaseActivity() {
             // Perform action based on the selected submenu (optional)
         } else {
             Log.d("Pantalla1", "Option not found: $formattedText")
+            showNotFoundDialog(formattedText)
         }
+    }
+
+    private fun showNotFoundDialog(option: String) {
+        val dialog = android.app.AlertDialog.Builder(this)
+            .setTitle("Opción no encontrada")
+            .setMessage("No se ha encontrado la opción \"$option\".")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+        dialog.show()
     }
 
     private fun updateTopOption(option: String) {
