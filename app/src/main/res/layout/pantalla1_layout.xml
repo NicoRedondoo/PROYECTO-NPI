@@ -2,47 +2,56 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:rotation="0"
-    android:scaleX="1"
-    android:scaleY="1">
+    android:background="@android:color/white">
 
+    <!-- Barra superior -->
     <com.example.proyectonpi.view.UpperBar
         android:id="@+id/upperBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <!-- CustomView CircularMenuView en la parte inferior -->
-
-
-    <!-- Otras vistas que puedas tener en pantalla (por ejemplo, texto, botones, etc.) -->
-
-    <com.example.proyectonpi.ui.vistas.CircularMenuView
-        android:id="@+id/circularMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:clickable="true"
+        android:focusable="true" />
 
+    <!-- Texto de resumen -->
     <TextView
         android:id="@+id/summaryText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="270dp"
         android:layout_below="@id/upperBar"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="50dp"
-        android:backgroundTintMode="src_atop"
-        android:outlineProvider="background"
         android:background="@drawable/rounded_textview"
         android:gravity="center"
         android:padding="10dp"
         android:textColor="@android:color/black"
-        android:textSize="22dp"
+        android:textSize="22sp"
         android:visibility="visible" />
 
+    <!-- Menú circular -->
+    <com.example.proyectonpi.ui.vistas.CircularMenuView
+        android:id="@+id/circularMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/summaryText"
+        android:layout_alignParentBottom="true" />
 
+    <!-- Botón de búsqueda por voz -->
+    <ImageButton
+        android:id="@+id/voiceSearchButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/circularMenu"
+        android:background="@drawable/circular_background"
+        android:contentDescription="@string/voice_search"
+        android:elevation="6dp"
+        android:focusable="true"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/micronegro"
+        android:translationZ="8dp"
+        android:clickable="true"/>
 </RelativeLayout>

@@ -1,6 +1,5 @@
 package com.example.proyectonpi.ui.vistas
 
-import android.util.Log
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -10,15 +9,17 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.RectF
 import android.util.AttributeSet
+import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
-import com.example.proyectonpi.GestionActivity
-import com.example.proyectonpi.MiPerfilActivity
-import com.example.proyectonpi.LocalizacionActivity
-import com.example.proyectonpi.NovedadesActivity
-import com.example.proyectonpi.InformacionActivity
+import android.view.ViewGroup
 import com.example.proyectonpi.ComedorActivity
+import com.example.proyectonpi.GestionActivity
+import com.example.proyectonpi.InformacionActivity
+import com.example.proyectonpi.LocalizacionActivity
+import com.example.proyectonpi.MiPerfilActivity
+import com.example.proyectonpi.NovedadesActivity
 import com.example.proyectonpi.R
 import kotlin.math.abs
 import kotlin.math.cos
@@ -37,58 +38,66 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
 
     private var gestureDetector: GestureDetector
     private var isSweeping = false
-    private val micIconResId = R.drawable.microfono_1
-    private lateinit var micRect: Rect
+    private val upperBar: View? = null
+    private val voiceSearchButton: View? = null
 
     init {
-        val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
+        val gestureListener = object : GestureDetector.OnGestureListener {
 
-            override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
+            override fun onDown(e: MotionEvent): Boolean {
+                return true
+            }
+
+            override fun onShowPress(e: MotionEvent) {}
+
+            override fun onSingleTapUp(e: MotionEvent): Boolean {
                 Log.d("CircularMenuView", "Toque simple confirmado")
                 val selectedOptionIndex = getSelectedOption()
                 val selectedOption = options[selectedOptionIndex]
                 onOptionSelectedListener?.onOptionSelected(selectedOption.name)
-                return true
-            }
-
-            override fun onDoubleTap(e: MotionEvent): Boolean {
-                Log.d("CircularMenuView", "Doble toque detectado")
-                val selectedOptionIndex = getSelectedOption()
-                val selectedOption = options[selectedOptionIndex]
                 openSubmenu(selectedOption.name)
                 return true
             }
 
             override fun onScroll(
+                p0: MotionEvent?,
                 e1: MotionEvent,
-                e2: MotionEvent,
                 distanceX: Float,
                 distanceY: Float
             ): Boolean {
-                // Only detect significant horizontal movements
-                val deltaX = e2.x - e1.x
-                if (!isSweeping && abs(deltaX) > swipeThreshold) { // If swipe is greater than threshold
+                // Solo detectar desplazamientos horizontales significativos
+                if (!isSweeping && abs(distanceX) > swipeThreshold) { // Si el desplazamiento es mayor que el umbral
                     isSweeping = true
-                    if (deltaX > 0) {
-                        // Swipe right
+                    if (distanceX > 0) {
+                        // Desplazamiento hacia la derecha
                         rotationAngle += 60f
-                        Log.d("CircularMenuView", "Swipe a la derecha detectado")
+                        Log.d("CircularMenuView", "Desplazamiento a la derecha detectado")
                     } else {
-                        // Swipe left
+                        // Desplazamiento hacia la izquierda
                         rotationAngle -= 60f
-                        Log.d("CircularMenuView", "Swipe a la izquierda detectado")
+                        Log.d("CircularMenuView", "Desplazamiento a la izquierda detectado")
                     }
 
-                    rotationAngle = (rotationAngle % 360 + 360) % 360 // Normalize angle
-                    // Notify top item change
-
+                    rotationAngle = (rotationAngle % 360 + 360) % 360 // Normalizar el ángulo
+                    // Notificar el cambio de opción seleccionada
                     val selectedOptionIndex = getSelectedOption()
                     val selectedOption = options[selectedOptionIndex]
-                    Log.d("CircularMenuView", "SelectedOption: $selectedOption")
+                    Log.d("CircularMenuView", "Opción seleccionada: $selectedOption")
                     onOptionSelectedListener?.onOptionSelected(selectedOption.name)
 
-                    invalidate() // Redraw to reflect change
+                    invalidate() // Redibujar para reflejar el cambio
                 }
+                return true
+            }
+
+            override fun onLongPress(e: MotionEvent) {}
+
+            override fun onFling(
+                p0: MotionEvent?,
+                e1: MotionEvent,
+                velocityX: Float,
+                velocityY: Float
+            ): Boolean {
                 return true
             }
         }
@@ -106,11 +115,11 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
         onOptionSelectedListener = listener
     }
     val options = listOf(
-        MenuOption("Mi perfil", R.drawable.novedades_1, 0f, "Entérate de todas las actividades y noticias de la ETSIIT, ¡no te pierdas ninguna!"),
-        MenuOption("Información", R.drawable.comedor_2, 60f, "Accede a toda la información que necesitas sobre procedimientos, becas, matriculación, Erasmus..."),
+        MenuOption("Mi perfil", R.drawable.mensaje_recibido, 0f, "Entérate de todas las actividades y noticias de la ETSIIT, ¡no te pierdas ninguna!"),
+        MenuOption("Información", R.drawable.restaurante, 60f, "Accede a toda la información que necesitas sobre procedimientos, becas, matriculación, Erasmus..."),
         MenuOption("Gestión", R.drawable.gestion_1, 120f, "Aquí podrás poner en orden tu papeleo con la UGR."),
         MenuOption("Comedores", R.drawable.informacion_1, 180f, "Infórmate del menú de la semana, ¡y pide el tuyo!"),
-        MenuOption("Novedades", R.drawable.miperfil1, 240f, "¡Descubre la ETSIIT de forma mucho más personalizada!"),
+        MenuOption("Novedades", R.drawable.usuario, 240f, "¡Descubre la ETSIIT de forma mucho más personalizada!"),
         MenuOption("Localización", R.drawable.localizacion1, 300f, "¿Estás perdido?  Consulta la ubicación de aulas y puntos de interés de la ETSIIT")
     )
 
@@ -131,9 +140,7 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     private var innerRadius = 350f  // Radio interno (corona)
     private var outerRadius = 600f  // Radio externo (corona)
 
-    private var initialAngle = 0f
-    private var swipeThreshold = 300
-    private var touchSlop = 20
+    private var swipeThreshold = 80
 
     private val outerRect = RectF()
     private val innerRect = RectF()
@@ -207,11 +214,26 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
 
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        val touchX = event.x
+        val touchY = event.y
+
+        // Comprobar si el toque está dentro del área del CircularMenuView
+        if (!hitTest(touchX, touchY)) {
+            return false // Si el toque está fuera, no lo manejamos
+        }
+
+        // Si el toque está dentro, delegamos el evento al GestureDetector
         val result = gestureDetector.onTouchEvent(event)
         if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
-            isSweeping = false // Reiniciar la variable al soltar el dedo
+            isSweeping = false
         }
         return result
+    }
+
+    // Función para comprobar si un punto está dentro del área del CircularMenuView
+    private fun hitTest(x: Float, y: Float): Boolean {
+        val distance = Math.sqrt(Math.pow((x - centerX).toDouble(), 2.0) + Math.pow((y - centerY).toDouble(), 2.0))
+        return distance <= outerRadius
     }
 
 

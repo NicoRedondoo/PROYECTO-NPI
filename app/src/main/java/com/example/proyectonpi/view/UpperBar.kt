@@ -13,6 +13,7 @@ import android.widget.EditText
 import android.widget.Button
 import android.widget.TextView
 import android.content.Intent
+import android.view.View
 import com.example.proyectonpi.HelpActivity
 
 
