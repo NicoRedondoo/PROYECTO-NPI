@@ -247,7 +247,7 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
         return closestIndex
     }
 
-    private fun openSubmenu(optionName: String) {
+    fun openSubmenu(optionName: String) {
         val intent = when (optionName) {
             "Gestión" -> Intent(context, GestionActivity::class.java)
             "Mi perfil" -> Intent(context, MiPerfilActivity::class.java)

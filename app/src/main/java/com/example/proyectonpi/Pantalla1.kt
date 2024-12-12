@@ -18,11 +18,11 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.proyectonpi.ui.vistas.CircularMenuView
 import com.example.proyectonpi.view.UpperBar
+import java.util.Locale
 
 class Pantalla1 : BaseActivity() {
 
     private lateinit var circularMenu: CircularMenuView
-    private lateinit var upperBar: UpperBar
     private lateinit var summaryText: TextView
     private lateinit var voiceSearchButton: ImageButton
     private lateinit var speechRecognizer: SpeechRecognizer
@@ -101,16 +101,14 @@ class Pantalla1 : BaseActivity() {
             Log.d("SpeechRecognition", "Ready for speech")
         }
         override fun onBeginningOfSpeech() {
-            TODO("Not yet implemented")
+            Log.d("SpeechRecognition", "Speech started")
         }
         override fun onRmsChanged(p0: Float) {
             Log.d("SpeechRecognition", "RMS energy: $p0")
         }
-        override fun onBufferReceived(p0: ByteArray?) {
-            TODO("Not yet implemented")
-        }
+        override fun onBufferReceived(p0: ByteArray?) {}
         override fun onEndOfSpeech() {
-            TODO("Not yet implemented")
+            Log.d("SpeechRecognition", "Speech ended")
         }
         override fun onError(p0: Int) {
             Log.d("SpeechRecognition", "Error: $p0")
@@ -119,7 +117,10 @@ class Pantalla1 : BaseActivity() {
             val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
             if (matches != null && matches.isNotEmpty()) {
                 val text = matches[0]
+                Log.d("SpeechRecognition", "Texto reconocido: $text")
                 handleVoiceCommand(text)
+            }else {
+                Log.d("SpeechRecognition", "No se reconoció ningún texto")
             }
         }
         override fun onPartialResults(p0: Bundle?) {
@@ -131,13 +132,22 @@ class Pantalla1 : BaseActivity() {
         }
     }
     fun handleVoiceCommand(text: String) {
-        val selectedOption = circularMenu.options.find { it.name == text }
+        val formattedText = text.split(" ").joinToString(" ") { it.replaceFirstChar {
+            if (it.isLowerCase()) it.titlecase(
+                Locale.ROOT
+            ) else it.toString()
+        } }
+
+        Log.d("Pantalla1", "Texto reconocido (formateado): $formattedText")
+
+        val selectedOption = circularMenu.options.find { it.name == formattedText }
+        Log.d("Pantalla1", "Opcion detectada: $selectedOption")
         if (selectedOption != null) {
-            updateTopOption(text)
-            showSummary(text)
+            Log.d("Pantalla1", "Opcion encontrada: $formattedText")
+            circularMenu.openSubmenu(formattedText)
             // Perform action based on the selected submenu (optional)
         } else {
-            Log.w("Pantalla1", "Option not found: $text")
+            Log.d("Pantalla1", "Option not found: $formattedText")
         }
     }
 
