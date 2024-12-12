@@ -115,26 +115,14 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
         onOptionSelectedListener = listener
     }
 
-    val titulo_perfil = context.getString(R.string.miperfil)
-    val titulo_informacion = context.getString(R.string.informacion)
-    val titulo_gestion = context.getString(R.string.gestion)
-    val titulo_comedores = context.getString(R.string.comedores)
-    val titulo_novedades = context.getString(R.string.novedades)
-    val titulo_localizacion = context.getString(R.string.localizacion)
 
-    val descripcion_perfil = context.getString(R.string.descripcion_miperfil)
-    val descripcion_informacion = context.getString(R.string.descripcion_informacion)
-    val descripcion_gestion = context.getString(R.string.descripcion_gestion)
-    val descripcion_comedores = context.getString(R.string.descripcion_comedores)
-    val descripcion_novedades = context.getString(R.string.descripcion_comedores)
-    val descripcion_localizacion = context.getString(R.string.descripcion_localizacion)
     val options = listOf(
-        MenuOption(titulo_novedades, R.drawable.novedades_1, 0f, descripcion_novedades),
-        MenuOption(titulo_informacion, R.drawable.comedor_2, 60f, descripcion_comedores),
-        MenuOption(titulo_gestion, R.drawable.gestion_1, 120f, descripcion_gestion),
-        MenuOption(titulo_comedores, R.drawable.informacion_1, 180f, descripcion_informacion),
-        MenuOption(titulo_perfil, R.drawable.miperfil1, 240f, descripcion_perfil),
-        MenuOption(titulo_localizacion, R.drawable.localizacion1, 300f, descripcion_localizacion)
+        MenuOption("Mi Perfil", R.drawable.mensaje_recibido, 0f, "Entérate de todas las actividades y noticias de la ETSIIT, ¡no te pierdas ninguna!"),
+        MenuOption("Información", R.drawable.restaurante, 60f, "Accede a toda la información que necesitas sobre procedimientos, becas, matriculación, Erasmus..."),
+        MenuOption("Gestión", R.drawable.gestion_1, 120f, "Aquí podrás poner en orden tu papeleo con la UGR."),
+        MenuOption("Comedores", R.drawable.informacion_1, 180f, "Infórmate del menú de la semana, ¡y pide el tuyo!"),
+        MenuOption("Novedades", R.drawable.usuario, 240f, "¡Descubre la ETSIIT de forma mucho más personalizada!"),
+        MenuOption("Localización", R.drawable.localizacion1, 300f, "¿Estás perdido?  Consulta la ubicación de aulas y puntos de interés de la ETSIIT")
     )
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
