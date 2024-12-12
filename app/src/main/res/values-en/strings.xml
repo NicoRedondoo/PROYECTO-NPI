@@ -23,5 +23,13 @@
     <string name="miperfil">My profile</string>
     <string name="localizacion">Location</string>
 
+    <string name="descripcion_novedades">Stay updated on all the activities and news of ETSIIT, don’t miss a thing!</string>
+    <string name="descripcion_comedores">Check out this week’s menu and order yours!</string>
+    <string name="descripcion_gestion">Here you can sort out your paperwork with UGR.</string>
+    <string name="descripcion_informacion">Access all the information you need about procedures, scholarships, enrollment, Erasmus...</string>
+    <string name="descripcion_miperfil">Discover ETSIIT in a much more personalized way!</string>
+    <string name="descripcion_localizacion">Lost? Check the location of classrooms and points of interest in ETSIIT.</string>
+
+
     <string name="desliza">Swipe to view the content</string>
 </resources>

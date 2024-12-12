@@ -23,5 +23,14 @@
     <string name="miperfil">Mi perfil</string>
     <string name="localizacion">Localização</string>
 
+    <string name="descripcion_novedades">Fique por dentro de todas as atividades e notícias da ETSIIT, não perca nada!</string>
+    <string name="descripcion_comedores">Confira o menu da semana e peça o seu!</string>
+    <string name="descripcion_gestion">Aqui você pode organizar sua documentação com a UGR.</string>
+    <string name="descripcion_informacion">Acesse todas as informações que você precisa sobre procedimentos, bolsas, matrícula, Erasmus...</string>
+    <string name="descripcion_miperfil">Descubra a ETSIIT de uma forma muito mais personalizada!</string>
+    <string name="descripcion_localizacion">Está perdido? Confira a localização das salas de aula e pontos de interesse da ETSIIT.</string>
+
+
     <string name="desliza">Deslize para visualizar o conteúdo</string>
+
 </resources>

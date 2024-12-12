@@ -1,39 +1,47 @@
 <resources>
-    <string name="app_name">PROYECTO NPI</string>
-    <string name="screen_touch_message">Toque la pantalla para comenzar</string>
-    <string name="screen_touch_message2">Pantalla tocada. Comenzando...</string>
-    <string name="bienvenido">BIENVENIDO</string>
-    <string name="seleccion_idioma">Seleccione el idioma</string>
-    <string name="title_activity_gestion">GestionActivity</string>
-    <string name="title_activity_help">HelpActivity</string>
-    <string name="title_activity_localizacion">LocalizacionActivity</string>
-    <string name="title_activity_novedades">NovedadesActivity</string>
-    <string name="title_activity_informacion">InformacionActivity</string>
-    <string name="title_activity_comedor">ComedorActivity</string>
-    <string name="title_activity_mi_perfil">MiPerfilActivity</string>
-    <string name="title_activity_base">BaseActivity</string>
+        <string name="app_name">PROYECTO NPI</string>
+        <string name="screen_touch_message">Toque la pantalla para comenzar</string>
+        <string name="screen_touch_message2">Pantalla tocada. Comenzando...</string>
+        <string name="bienvenido">BIENVENIDO</string>
+        <string name="seleccion_idioma">Seleccione el idioma</string>
+        <string name="title_activity_gestion">GestionActivity</string>
+        <string name="title_activity_help">HelpActivity</string>
+        <string name="title_activity_localizacion">LocalizacionActivity</string>
+        <string name="title_activity_novedades">NovedadesActivity</string>
+        <string name="title_activity_informacion">InformacionActivity</string>
+        <string name="title_activity_comedor">ComedorActivity</string>
+        <string name="title_activity_mi_perfil">MiPerfilActivity</string>
+        <string name="title_activity_base">BaseActivity</string>
 
-    <string name="iniciar_sesion">Iniciar sesión</string>
-    <string name="usuario">Usuario</string>
-    <string name="contraseña">Contraseña</string>
-    <string name="iniciar_sesion_mayus">INICIAR SESIÓN</string>
-    <string name="crear_cuenta">CREAR CUENTA</string>
-    <string name="cerrar_sesion">CERRAR SESIÓN</string>
-    <string name="sesion_cerrada">Sesión cerrada</string>
-    <string name="completa_campos">Por favor, completa todos los campos</string>
-    <string name="redirigir_creacion_cuenta">Redirigiendo a creación de cuenta</string>
-    <string name="sesion_iniciada"> Sesión iniciada </string>
-    <string name="hola">Hola</string>
-    <string name="sesion_iniciada_como">Sesión iniciada como</string>
+        <string name="iniciar_sesion">Iniciar sesión</string>
+        <string name="usuario">Usuario</string>
+        <string name="contraseña">Contraseña</string>
+        <string name="iniciar_sesion_mayus">INICIAR SESIÓN</string>
+        <string name="crear_cuenta">CREAR CUENTA</string>
+        <string name="cerrar_sesion">CERRAR SESIÓN</string>
+        <string name="sesion_cerrada">Sesión cerrada</string>
+        <string name="completa_campos">Por favor, completa todos los campos</string>
+        <string name="redirigir_creacion_cuenta">Redirigiendo a creación de cuenta</string>
+        <string name="sesion_iniciada"> Sesión iniciada </string>
+        <string name="hola">Hola</string>
+        <string name="sesion_iniciada_como">Sesión iniciada como</string>
 
-    <string name="novedades">Novedades</string>
-    <string name="comedores">Comedores</string>
-    <string name="gestion">Gestión</string>
-    <string name="informacion">Información</string>
-    <string name="miperfil">Mi perfil</string>
-    <string name="localizacion">Localización</string>
+        <string name="novedades">Novedades</string>
+        <string name="comedores">Comedores</string>
+        <string name="gestion">Gestión</string>
+        <string name="informacion">Información</string>
+        <string name="miperfil">Mi perfil</string>
+        <string name="localizacion">Localización</string>
 
-    <string name="desliza">Desliza para visualizar el contenido</string>
+        <string name="descripcion_novedades">Entérate de todas las actividades y noticias de la ETSIIT, ¡no te pierdas ninguna!</string>
+        <string name="descripcion_comedores">Infórmate del menú de la semana, ¡y pide el tuyo!</string>
+        <string name="descripcion_gestion">Aquí podrás poner en orden tu papeleo con la UGR.</string>
+        <string name="descripcion_informacion">Accede a toda la información que necesitas sobre procedimientos, becas, matriculación, Erasmus...</string>
+        <string name="descripcion_miperfil">¡Descubre la ETSIIT de forma mucho más personalizada!</string>
+        <string name="descripcion_localizacion">¿Estás perdido?  Consulta la ubicación de aulas y puntos de interés de la ETSIIT</string>
+
+        <string name="desliza">Desliza para visualizar el contenido</string>
+
     <string name="voice_search">Voice Search</string>
 
 

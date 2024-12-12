@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         val btnSpanish = findViewById<Button>(R.id.btn_spanish)
         val btnEnglish = findViewById<Button>(R.id.btn_english)
         val btnFrench = findViewById<Button>(R.id.btn_french)
-        val btnGerman = findViewById<Button>(R.id.btn_german)
         val btnItalian = findViewById<Button>(R.id.btn_italian)
         val btnPortuguese = findViewById<Button>(R.id.btn_portuguese)
 
@@ -49,9 +48,6 @@ class MainActivity : AppCompatActivity() {
         }
         btnFrench.setOnClickListener {
             setLanguage("fr")
-        }
-        btnGerman.setOnClickListener {
-            setLanguage("de")
         }
         btnItalian.setOnClickListener {
             setLanguage("it")
