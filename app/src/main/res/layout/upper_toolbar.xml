@@ -33,6 +33,6 @@
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="Botón derecho"
         android:scaleType="fitCenter"
-        android:src="@drawable/miperfil1" />
+        android:src="@drawable/usuario" />
 
 </LinearLayout>
