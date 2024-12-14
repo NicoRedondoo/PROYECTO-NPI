@@ -15,6 +15,7 @@ import android.widget.TextView
 import android.content.Intent
 import android.view.View
 import com.example.proyectonpi.HelpActivity
+import com.example.proyectonpi.ui.vistas.ChatActivity
 
 
 class UpperBar @JvmOverloads constructor(
@@ -45,6 +46,13 @@ class UpperBar @JvmOverloads constructor(
             } else {
                 showLoginDialog()
             }
+        }
+
+        val chatbotButton = findViewById<ImageButton>(R.id.chatbotButton)
+        chatbotButton.setOnClickListener {
+            // Abrir la actividad del chatbot cuando se haga clic en el botón izquierdo
+            val intent = Intent(context, ChatActivity::class.java)
+            context.startActivity(intent)
         }
     }
 

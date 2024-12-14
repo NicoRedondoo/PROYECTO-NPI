@@ -18,7 +18,6 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.proyectonpi.ui.vistas.CircularMenuView
-import com.example.proyectonpi.view.UpperBar
 import java.util.Locale
 
 class Pantalla1 : BaseActivity() {
@@ -27,6 +26,7 @@ class Pantalla1 : BaseActivity() {
     private lateinit var summaryText: TextView
     private lateinit var voiceSearchButton: ImageButton
     private lateinit var speechRecognizer: SpeechRecognizer
+    private lateinit var chatbotButton : ImageButton
     private var speechIntent: Intent? = null
 
     private var REQUEST_RECORD_AUDIO_PERMISSION = 100
@@ -38,6 +38,7 @@ class Pantalla1 : BaseActivity() {
         circularMenu = findViewById(R.id.circularMenu)
         summaryText = findViewById(R.id.summaryText)
         voiceSearchButton = findViewById(R.id.voiceSearchButton)
+        chatbotButton = findViewById(R.id.chatbotButton)
 
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
         speechIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)

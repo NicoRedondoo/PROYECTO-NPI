@@ -35,11 +35,8 @@ data class MenuOption(
 
 class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
-
     private var gestureDetector: GestureDetector
     private var isSweeping = false
-    private val upperBar: View? = null
-    private val voiceSearchButton: View? = null
 
     init {
         val gestureListener = object : GestureDetector.OnGestureListener {
@@ -129,11 +126,11 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     val descripcion_novedades = context.getString(R.string.descripcion_comedores)
     val descripcion_localizacion = context.getString(R.string.descripcion_localizacion)
     val options = listOf(
-        MenuOption(titulo_novedades, R.drawable.novedades_1, 0f, descripcion_novedades),
+        MenuOption(titulo_novedades, R.drawable.usuario, 0f, descripcion_novedades),
         MenuOption(titulo_informacion, R.drawable.comedor_2, 60f, descripcion_comedores),
         MenuOption(titulo_gestion, R.drawable.gestion_1, 120f, descripcion_gestion),
         MenuOption(titulo_comedores, R.drawable.informacion_1, 180f, descripcion_informacion),
-        MenuOption(titulo_perfil, R.drawable.miperfil1, 240f, descripcion_perfil),
+        MenuOption(titulo_perfil, R.drawable.mensaje_recibido, 240f, descripcion_perfil),
         MenuOption(titulo_localizacion, R.drawable.localizacion1, 300f, descripcion_localizacion)
     )
 
@@ -154,7 +151,7 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     private var innerRadius = 350f  // Radio interno (corona)
     private var outerRadius = 600f  // Radio externo (corona)
 
-    private var swipeThreshold = 80
+    private var swipeThreshold = 60
 
     private val outerRect = RectF()
     private val innerRect = RectF()

@@ -67,6 +67,9 @@
         <activity
             android:name=".Pantalla1"
             android:exported="true" />
+        <activity
+            android:name=".ui.vistas.ChatActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

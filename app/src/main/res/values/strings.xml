@@ -30,7 +30,7 @@
         <string name="comedores">Comedores</string>
         <string name="gestion">Gestión</string>
         <string name="informacion">Información</string>
-        <string name="miperfil">Mi perfil</string>
+        <string name="miperfil">Mi Perfil</string>
         <string name="localizacion">Localización</string>
 
         <string name="descripcion_novedades">Entérate de todas las actividades y noticias de la ETSIIT, ¡no te pierdas ninguna!</string>
@@ -42,7 +42,7 @@
 
         <string name="desliza">Desliza para visualizar el contenido</string>
 
-    <string name="voice_search">Voice Search</string>
+        <string name="voice_search" translatable="false">Voice Search</string>
 
 
 </resources>

@@ -9,9 +9,11 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:contentDescription="Chatbot"
-        android:background="@drawable/chatbot_background"
         android:layout_alignParentBottom="true"
+        android:src="@drawable/chatbot"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/chatbot"
         tools:ignore="HardcodedText" />
 </RelativeLayout>

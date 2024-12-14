@@ -1,30 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
 
-    <ListView
-        android:id="@+id/chatListView"
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+<!-- Chat Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF4D4D"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:src="@drawable/chatbot" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ETSIIT BOT"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginStart="60dp" />
+        </LinearLayout>
+
+    <!-- RecyclerView para mostrar los mensajes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:dividerHeight="8dp" />
+        android:layout_weight="1" />
 
-    <EditText
-        android:id="@+id/messageInput"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_weight="4"
-        android:hint="Escribe tu mensaje" />
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical">
 
-    <ImageButton
-        android:id="@+id/sendMessageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@id/messageInput"
-        android:src="@drawable/enviar"
-        android:contentDescription="Enviar mensaje" />
-</RelativeLayout>
+        <!-- Input Text Field -->
+        <EditText
+            android:id="@+id/message_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Pregúntame cualquier cosa"
+            android:inputType="text"
+            android:background="@android:drawable/edit_text" />
+
+        <!-- Send Button -->
+        <ImageButton
+            android:id="@+id/send_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_send"
+            android:contentDescription="Send"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+    </LinearLayout>
+
+<!-- Chat Body -->
+<!-- Agregarás más componentes aquí para el cuerpo del chat -->
+</LinearLayout>
