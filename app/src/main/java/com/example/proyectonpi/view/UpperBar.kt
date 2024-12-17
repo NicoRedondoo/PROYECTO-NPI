@@ -14,6 +14,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.content.Intent
 import android.view.View
+import com.example.proyectonpi.EscanearActivity
 import com.example.proyectonpi.HelpActivity
 
 
@@ -38,6 +39,14 @@ class UpperBar @JvmOverloads constructor(
             val intent = Intent(context, HelpActivity::class.java)
             context.startActivity(intent)
         }
+
+        val escanear = findViewById<ImageButton>(R.id.escanear)
+        escanear.setOnClickListener {
+            val intent = Intent(context, EscanearActivity::class.java)
+            context.startActivity(intent)
+        }
+
+
 
         findViewById<ImageButton>(R.id.right_button).setOnClickListener {
             if (isLoggedIn) {

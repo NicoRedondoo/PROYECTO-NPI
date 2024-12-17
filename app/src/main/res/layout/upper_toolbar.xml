@@ -4,27 +4,60 @@
     android:orientation="horizontal"
     android:background="#FF4D4D"
     android:padding="8dp"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical|center_horizontal">
 
+    <!-- Botón de ayuda -->
     <ImageButton
         android:id="@+id/left_button"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="41dp"
+        android:layout_height="53dp"
         android:layout_marginEnd="16dp"
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="Botón izquierdo"
         android:scaleType="fitCenter"
         android:src="@drawable/ayuda_1" />
 
+    <!-- Contenedor vertical para los dos botones pequeños -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp">
+
+        <!-- Botón pequeño 1 -->
+        <ImageButton
+            android:id="@+id/escanear"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="Escanear"
+            android:scaleType="fitCenter"
+            android:src="@drawable/escanear" />
+
+        <!-- Botón pequeño 2 -->
+        <ImageButton
+            android:id="@+id/bot"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="Bot"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bot" />
+    </LinearLayout>
+
+    <!-- Imagen central -->
     <ImageView
         android:id="@+id/center_image"
-        android:layout_width="0dp"
-        android:layout_height="91dp"
+        android:layout_width="205dp"
+        android:layout_height="95dp"
         android:layout_marginHorizontal="16dp"
         android:layout_weight="1"
         android:contentDescription="Imagen central"
         android:src="@drawable/logohorizontal" />
 
+    <!-- Botón derecho -->
     <ImageButton
         android:id="@+id/right_button"
         android:layout_width="70dp"
@@ -34,5 +67,4 @@
         android:contentDescription="Botón derecho"
         android:scaleType="fitCenter"
         android:src="@drawable/miperfil1" />
-
 </LinearLayout>
