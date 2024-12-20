@@ -25,13 +25,14 @@
         app:layout_constraintTop_toBottomOf="@id/upperBar" />
 
     <TextView
-        android:id="@+id/tvSubTitle"
+        android:id="@+id/tvSearchLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text=""
-        android:textColor="#6C757D"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:text="Buscar en la web: https://etsiit.ugr.es/la-escuela/presentacion/instalaciones-servicios/biblioteca"
+        android:textSize="18sp"
+        android:autoLink="web"
+        android:layout_marginBottom="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />

@@ -71,8 +71,8 @@ dependencies {
     implementation ("androidx.core:core-ktx:1.15.0")
     implementation ("androidx.appcompat:appcompat:1.7.0")
     implementation ("com.google.android.gms:play-services-location:21.3.0")
-
     implementation ("com.google.ai.client.generativeai:generativeai:0.9.0")
     implementation("com.google.zxing:core:3.3.3")
     implementation("com.journeyapps:zxing-android-embedded:4.3.0") // Última versión estable
+
 }
