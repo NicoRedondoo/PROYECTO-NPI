@@ -21,10 +21,125 @@
         android:theme="@style/Theme.PROYECTONPI"
         tools:targetApi="31">
         <activity
+            android:name=".MisPagosActivity"
+            android:exported="false"
+            android:label="@string/title_activity_mis_pagos"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".TramitacionDeTitulosActivity"
+            android:exported="false"
+            android:label="@string/title_activity_tramitacion_de_titulos"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".SolicitudBecasActivity"
+            android:exported="false"
+            android:label="@string/title_activity_solicitud_becas"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".ResguardoMatricula"
+            android:exported="false"
+            android:label="@string/title_activity_resguardo_matricula"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".GestionDeMiFotoUGRActivity"
+            android:exported="false"
+            android:label="@string/title_activity_gestion_de_mi_foto_ugractivity"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".EmisionTUIActivity"
+            android:exported="false"
+            android:label="@string/title_activity_emision_tuiactivity"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".CitaSecretariaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_cita_secretaria"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".InformacionSobreMenus"
+            android:exported="false"
+            android:label="@string/title_activity_informacion_sobre_menus"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".ReservaTuMenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_reserva_tu_menu"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".BotTelegramActivity"
+            android:exported="false"
+            android:label="@string/title_activity_bot_telegram"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".MenuSemanalActivity"
+            android:exported="false"
+            android:label="@string/title_activity_menu_semanal"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".BibliotecaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_biblioteca"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".HorarioProfesoresTutoriasActivity"
+            android:exported="false"
+            android:label="@string/title_activity_horario_profesores_tutorias"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".CalendarioTramitesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_calendario_tramites"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".CalendarioExamenesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_calendario_examenes"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".CalendarioDocenteActivity"
+            android:exported="false"
+            android:label="@string/title_activity_calendario_docente"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".AccesoSwadActivity"
+            android:exported="false"
+            android:label="@string/title_activity_acceso_swad"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".AccesoPradoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_acceso_prado"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".ConsultaEstadoAccesoPradoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_consulta_estado_acceso_prado"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".MisProfesoresActivity"
+            android:exported="false"
+            android:label="@string/title_activity_mis_profesores"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".ConsultaMatriculaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_consulta_matricula"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".ConsultaDeExpedienteActivity"
+            android:exported="false"
+            android:label="@string/title_activity_consulta_de_expediente"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".HorarioPersonalizadoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_horario_personalizado"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
             android:name=".ConsultarSaldoActivity"
-            android:launchMode="singleTop"
             android:exported="false"
             android:label="@string/title_activity_consultar_saldo"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.PROYECTONPI" />
         <activity
             android:name=".EscanearActivity"

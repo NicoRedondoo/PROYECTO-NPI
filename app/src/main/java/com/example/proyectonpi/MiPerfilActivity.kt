@@ -3,18 +3,6 @@ package com.example.proyectonpi
 import android.os.Bundle
 import android.widget.Button
 import android.content.Intent
-import android.content.Context
-
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.proyectonpi.ui.theme.PROYECTONPITheme
 
 
 class MiPerfilActivity : BaseActivity() {
@@ -28,7 +16,43 @@ class MiPerfilActivity : BaseActivity() {
     private fun setupListeners() {
         val horarioPersonalizadoButton = findViewById<Button>(R.id.btnHorarioPersonalizado)
         horarioPersonalizadoButton.setOnClickListener {
-            val intent = Intent(this, EscanearActivity::class.java)
+            val intent = Intent(this, HorarioPersonalizadoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val consultaDeExpedienteButton = findViewById<Button>(R.id.btnConsultaExpediente)
+        consultaDeExpedienteButton.setOnClickListener {
+            val intent = Intent(this, ConsultaDeExpedienteActivity::class.java)
+            startActivity(intent)
+        }
+
+        val consultaMatriculaButton = findViewById<Button>(R.id.btnConsultaMatricula)
+        consultaMatriculaButton.setOnClickListener {
+            val intent = Intent(this, ConsultaMatriculaActivity::class.java)
+            startActivity(intent)
+        }
+
+        val misProfesoresButton = findViewById<Button>(R.id.btnMisProfesores)
+        misProfesoresButton.setOnClickListener {
+            val intent = Intent(this, MisProfesoresActivity::class.java)
+            startActivity(intent)
+        }
+
+        val consultaEstadoAccesoPradoButton = findViewById<Button>(R.id.btnConsultaPrado)
+        consultaEstadoAccesoPradoButton.setOnClickListener {
+            val intent = Intent(this, ConsultaEstadoAccesoPradoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val accesoPradoButton = findViewById<Button>(R.id.btnAccesoPrado)
+        accesoPradoButton.setOnClickListener {
+            val intent = Intent(this, AccesoPradoActivity::class.java)
+            startActivity(intent)
+        }
+
+        val accesoSwadButton = findViewById<Button>(R.id.btnAccesoSWAD)
+        accesoSwadButton.setOnClickListener {
+            val intent = Intent(this, AccesoSwadActivity::class.java)
             startActivity(intent)
         }
 

@@ -45,6 +45,29 @@
     <string name="voice_search">Voice Search</string>
     <string name="title_activity_escanear">EscanearActivity</string>
     <string name="title_activity_consultar_saldo">ConsultarSaldoActivity</string>
+    <string name="title_activity_horario_personalizado">HorarioPersonalizadoActivity</string>
+    <string name="title_activity_consulta_de_expediente">ConsultaDeExpediente</string>
+    <string name="title_activity_consulta_matricula">ConsultaMatriculaActivity</string>
+    <string name="title_activity_mis_profesores">MisProfesoresActivity</string>
+    <string name="title_activity_consulta_estado_acceso_prado">ConsultaEstadoAccesoPrado</string>
+    <string name="title_activity_acceso_prado">AccesoPradoActivity</string>
+    <string name="title_activity_acceso_swad">AccesoSwad</string>
+    <string name="title_activity_calendario_docente">CalendarioDocenteActivity</string>
+    <string name="title_activity_calendario_examenes">CalendarioExamenesActivity</string>
+    <string name="title_activity_calendario_tramites">CalendarioTramitesActivity</string>
+    <string name="title_activity_horario_profesores_tutorias">HorarioProfesoresTutorias</string>
+    <string name="title_activity_biblioteca">BibliotecaActivity</string>
+    <string name="title_activity_menu_semanal">MenuSemanalActivity</string>
+    <string name="title_activity_bot_telegram">BotTelegramActivity</string>
+    <string name="title_activity_reserva_tu_menu">ReservaTuMenuActivity</string>
+    <string name="title_activity_informacion_sobre_menus">InformacionSobreMenus</string>
+    <string name="title_activity_cita_secretaria">CitaSecretariaActivity</string>
+    <string name="title_activity_emision_tuiactivity">EmisionTUIActivity</string>
+    <string name="title_activity_gestion_de_mi_foto_ugractivity">GestionDeMiFotoUGRActivity</string>
+    <string name="title_activity_resguardo_matricula">ResguardoMatricula</string>
+    <string name="title_activity_solicitud_becas">SolicitudBecasActivity</string>
+    <string name="title_activity_tramitacion_de_titulos">TramitacionDeTitulosActivity</string>
+    <string name="title_activity_mis_pagos">MisPagosActivity</string>
 
 
 </resources>

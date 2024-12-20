@@ -55,7 +55,7 @@
         android:id="@+id/btnCalendarioExamenes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Calendario ExámenesI"
+        android:text="Calendario Exámenes"
         android:background="@drawable/button_rounded"
         android:textColor="#3E4A59"
         android:textStyle="bold"
