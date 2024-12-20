@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.proyectonpi.view.UpperBar
+        android:id="@+id/upperBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Título principal -->
+    <TextView
+        android:id="@+id/textTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consultar saldo credibús"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="20dp"
+        android:paddingBottom="40dp" />
+
+    <!-- Texto de saldo -->
+
+    <!-- Texto vacío para mostrar el saldo -->
+    <TextView
+        android:id="@+id/tvNfcStatus"
+        android:layout_width="319dp"
+        android:layout_height="111dp"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="40dp"
+        android:text="Acerque su TUI a la parte trasera de su móvil"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tvMensajeSaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        android:text=""
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/tvNfcSaldo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="38sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/btnConsultarOtra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consultar otra tarjeta"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal" />
+
+
+
+
+
+
+
+</LinearLayout>
