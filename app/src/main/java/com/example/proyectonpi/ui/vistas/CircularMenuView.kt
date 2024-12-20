@@ -35,11 +35,8 @@ data class MenuOption(
 
 class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
-
     private var gestureDetector: GestureDetector
     private var isSweeping = false
-    private val upperBar: View? = null
-    private val voiceSearchButton: View? = null
 
     init {
         val gestureListener = object : GestureDetector.OnGestureListener {
@@ -117,12 +114,14 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
 
 
     val options = listOf(
+
         MenuOption("Mi Perfil", R.drawable.mensaje_recibido, 0f, "Entérate de todas las actividades y noticias de la ETSIIT, ¡no te pierdas ninguna!"),
         MenuOption("Información", R.drawable.restaurante, 60f, "Accede a toda la información que necesitas sobre procedimientos, becas, matriculación, Erasmus..."),
         MenuOption("Gestión", R.drawable.gestion_1, 120f, "Aquí podrás poner en orden tu papeleo con la UGR."),
         MenuOption("Comedores", R.drawable.informacion_1, 180f, "Infórmate del menú de la semana, ¡y pide el tuyo!"),
         MenuOption("Novedades", R.drawable.usuario, 240f, "¡Descubre la ETSIIT de forma mucho más personalizada!"),
         MenuOption("Localización", R.drawable.localizacion1, 300f, "¿Estás perdido?  Consulta la ubicación de aulas y puntos de interés de la ETSIIT")
+
     )
 
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -142,7 +141,7 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     private var innerRadius = 350f  // Radio interno (corona)
     private var outerRadius = 600f  // Radio externo (corona)
 
-    private var swipeThreshold = 80
+    private var swipeThreshold = 60
 
     private val outerRect = RectF()
     private val innerRect = RectF()
