@@ -59,6 +59,8 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/button_rounded"
         android:text="Acceso"
+        android:textColor="#F7F7F2"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

@@ -118,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="• Icono de usuario (barra superior derecha): Accede al login para gestionar todas las opciones.\n• Bot de ayuda: Interactúa para resolver dudas o encontrar información específica.\n• Escaneo de QR: Redirige a menús específicos automáticamente.\n• Idiomas: Elige tu idioma preferido en la pantalla inicial."
+                        android:text="• Login: inicia sesión para acceder a todas las funcionalidades.\n• Bot de ayuda: Interactúa para resolver dudas o encontrar información específica.\n• Escaneo de QR: Redirige a menús específicos automáticamente.\n• Idiomas: Elige tu idioma preferido en la pantalla inicial.\n• Control por voz: Toca el icono del micrófono y di en voz alta a qué menú quieres acceder para navegar por la aplicación de forma más rápida"
                         android:textSize="18sp"
                         android:lineSpacingExtra="4dp" />
 
@@ -136,6 +136,8 @@
                 android:paddingHorizontal="32dp"
                 android:paddingVertical="12dp"
                 android:text="Volver al inicio"
+                android:textColor="#F7F7F2"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 android:background="@drawable/button_rounded" />
 

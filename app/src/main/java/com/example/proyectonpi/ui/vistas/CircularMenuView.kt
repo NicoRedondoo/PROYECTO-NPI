@@ -134,8 +134,14 @@ class CircularMenuView(context: Context, attrs: AttributeSet) : View(context, at
     private var rotationAngle = 0f
 
     private val colors = listOf(
-        Color.rgb(255, 77, 77), Color.rgb(204, 62, 62),Color.rgb(255, 77, 77), Color.rgb(204, 62, 62),Color.rgb(255, 77, 77), Color.rgb(204, 62, 62)
+        Color.parseColor("#A62A2E"),
+        Color.parseColor("#CB2C30"),
+        Color.parseColor("#A62A2E"),
+        Color.parseColor("#CB2C30"),
+        Color.parseColor("#A62A2E"),
+        Color.parseColor("#CB2C30")
     )
+
     private var centerX = 0f
     private var centerY = 0f
     private var innerRadius = 350f  // Radio interno (corona)

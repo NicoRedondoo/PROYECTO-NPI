@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="#F1F1F1">
 
     <!-- Barra superior -->
     <com.example.proyectonpi.view.UpperBar
@@ -16,6 +16,7 @@
     <!-- Texto de resumen -->
     <TextView
         android:id="@+id/summaryText"
+
         android:layout_width="match_parent"
         android:layout_height="270dp"
         android:layout_below="@id/upperBar"
@@ -27,7 +28,7 @@
         android:background="@drawable/rounded_textview"
         android:gravity="center"
         android:padding="10dp"
-        android:textColor="@android:color/black"
+        android:textColor="#F7F7F2"
         android:textSize="22sp"
         android:visibility="visible" />
 

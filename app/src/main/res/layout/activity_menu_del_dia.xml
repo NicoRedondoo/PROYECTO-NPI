@@ -32,7 +32,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
         android:text="Opción 1:"
-        android:textColor="#E74C3C"
+        android:textColor="#D12B2E"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
-        android:background="#E74C3C"
+        android:background="#D12B2E"
         app:layout_constraintTop_toBottomOf="@id/tvOption1Dessert" />
 
     <TextView
@@ -100,7 +100,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:text="Opción 2:"
-        android:textColor="#E74C3C"
+        android:textColor="#D12B2E"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,10 +112,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
-    android:text="Primero: Lasaña de verduras"
-    android:textSize="20sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/tvOption2" />
+        android:text="Primero: Lasaña de verduras"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvOption2" />
 
     <TextView
         android:id="@+id/tvOption2Second"
@@ -123,10 +123,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
-    android:text="Segundo: Tortilla de calabacín"
-    android:textSize="20sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/tvOption2First" />
+        android:text="Segundo: Tortilla de calabacín"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvOption2First" />
 
     <TextView
         android:id="@+id/tvOption2Side"
@@ -134,10 +134,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
-    android:text="Acompañamiento: Pimientos fritos"
-    android:textSize="20sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/tvOption2Second" />
+        android:text="Acompañamiento: Pimientos fritos"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvOption2Second" />
 
     <TextView
         android:id="@+id/tvOption2Dessert"
@@ -145,9 +145,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
-    android:text="Postre: Piña"
-    android:textSize="20sp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/tvOption2Side" />
+        android:text="Postre: Piña"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvOption2Side" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
