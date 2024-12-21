@@ -47,6 +47,22 @@ class EscanearActivity : BaseActivity() {
                     val intent = Intent(this, ConsultarSaldoActivity::class.java)
                     startActivity(intent)
                 }
+                "citaEnSecretaria" -> {
+                    val intent = Intent(this, CitaSecretariaActivity::class.java)
+                    startActivity(intent)
+                }
+                "solicitudGeneral" -> {
+                    val intent = Intent(this, SolicitudGeneralActivity::class.java)
+                    startActivity(intent)
+                }
+                "certificadoDeCalificaciones" -> {
+                    val intent = Intent(this, CertificadoCalificacionesActivity::class.java)
+                    startActivity(intent)
+                }
+                "certificadoDeMatricula" -> {
+                    val intent = Intent(this, CertificadoDeMatriculaActivity::class.java)
+                    startActivity(intent)
+                }
                 else -> {
                     Toast.makeText(this, "Código no reconocido", Toast.LENGTH_SHORT).show()
                     finish()

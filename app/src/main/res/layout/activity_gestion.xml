@@ -52,10 +52,10 @@
         app:layout_constraintTop_toBottomOf="@id/tvSubTitle" />
 
     <Button
-        android:id="@+id/btnEmisionTarjetaTUI"
+        android:id="@+id/btnSolicitudGeneral"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Emisión Instantánea de la tarjeta TUI"
+        android:text="Solicitud general"
         android:background="@drawable/button_rounded"
         android:textColor="#3E4A59"
         android:textStyle="bold"
@@ -66,73 +66,34 @@
         android:layout_marginHorizontal="16dp" />
 
     <Button
-        android:id="@+id/btnGestionFotoUGR"
+        android:id="@+id/btnCertificadoCalificaciones"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Gestión de mi foto UGR"
+        android:text="Certificado de calificaciones"
         android:background="@drawable/button_rounded"
         android:textColor="#3E4A59"
         android:textStyle="bold"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/btnEmisionTarjetaTUI"
+        app:layout_constraintTop_toBottomOf="@id/btnSolicitudGeneral"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp" />
 
     <Button
-        android:id="@+id/btnResguardoMatricula"
+        android:id="@+id/btnCertificadoDeMatricula"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Resguardo de Matrícula"
+        android:text="Certificado De Matricula"
         android:background="@drawable/button_rounded"
         android:textColor="#3E4A59"
         android:textStyle="bold"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/btnGestionFotoUGR"
+        app:layout_constraintTop_toBottomOf="@id/btnCertificadoCalificaciones"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp" />
 
-    <Button
-        android:id="@+id/btnSolicitudBecas"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Solicitud de Becas Propias"
-        android:background="@drawable/button_rounded"
-        android:textColor="#3E4A59"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/btnResguardoMatricula"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="16dp" />
 
-    <Button
-        android:id="@+id/btnTramitacionTitulos"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Tramitación de títulos"
-        android:background="@drawable/button_rounded"
-        android:textColor="#3E4A59"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/btnSolicitudBecas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="16dp" />
 
-    <Button
-        android:id="@+id/btnMisPagosUGR"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Mis pagos UGR"
-        android:background="@drawable/button_rounded"
-        android:textColor="#3E4A59"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/btnTramitacionTitulos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

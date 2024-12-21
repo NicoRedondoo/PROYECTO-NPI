@@ -17,10 +17,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.proyectonpi.ui.theme.PROYECTONPITheme
 
 
-class ReservaTuMenuActivity : BaseActivity() {
+class CertificadoCalificacionesActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_reserva_tu_menu_activity) // Vincula el archivo XML
+        setContentView(R.layout.activity_certificado_calificaciones) // Vincula el archivo XML
 
     }
 }

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F1F1"
+    tools:context=".MenuParaLLevarActivity">
+
+    <com.example.proyectonpi.view.UpperBar
+        android:id="@+id/upperBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Menú para llevar"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upperBar" />
+
+    <TextView
+        android:id="@+id/tvSubTitle"
+        android:layout_width="343dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="24dp"
+        android:text="Rellena el siguiente formulario para pedir tu menú"
+        android:textColor="#6C757D"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <!-- Día de la semana -->
+    <TextView
+        android:id="@+id/tvChooseDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escoge el día"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvChooseDay"
+        android:entries="@array/days_array"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Campus -->
+    <TextView
+        android:id="@+id/tvChooseCampus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escoge el campus"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerDay"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerCampus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvChooseCampus"
+        android:entries="@array/campus_options"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Almuerzo o Cena -->
+    <TextView
+        android:id="@+id/tvChooseMeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escoge el menú"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerCampus"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerMeal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvChooseMeal"
+        android:entries="@array/meal_options"
+        android:layout_marginStart="16dp"/>
+    
+    <!-- Botón Accede al Pago -->
+    <Button
+        android:id="@+id/btnAccedeAlPago"
+        android:layout_width="197dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_rounded"
+        android:text="ACCEDE AL PAGO"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerMeal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

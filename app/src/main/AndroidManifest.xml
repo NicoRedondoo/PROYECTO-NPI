@@ -22,6 +22,26 @@
         android:theme="@style/Theme.PROYECTONPI"
         tools:targetApi="31">
         <activity
+            android:name=".MenuDelDiaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_menu_del_dia"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".CertificadoDeMatriculaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_certificado_de_matricula"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".SolicitudGeneralActivity"
+            android:exported="false"
+            android:label="@string/title_activity_solicitud_general"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
+            android:name=".CertificadoCalificacionesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_certificado_calificaciones"
+            android:theme="@style/Theme.PROYECTONPI" />
+        <activity
             android:name=".MisPagosActivity"
             android:exported="false"
             android:label="@string/title_activity_mis_pagos"
@@ -62,7 +82,7 @@
             android:label="@string/title_activity_informacion_sobre_menus"
             android:theme="@style/Theme.PROYECTONPI" />
         <activity
-            android:name=".ReservaTuMenuActivity"
+            android:name=".MenuParaLLevarActivity"
             android:exported="false"
             android:label="@string/title_activity_reserva_tu_menu"
             android:theme="@style/Theme.PROYECTONPI" />
